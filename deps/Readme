@@ -1,0 +1,4 @@
+qunit dependencies are copied here, to not require external modules
+
+- aflow
+- arlib/getopt

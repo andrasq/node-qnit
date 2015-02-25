@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+
+/**
+ * qunit -- simple unit test runner, like nodeunit
+ *
+ * Copyright (C) 2015 Andras Radics
+ * Licensed under the Apache License, Version 2.0
+ */
+
+var VERSION = "v0.1.0";
+
+var fs = require('fs');
+var tty = require('tty');
+var getopt = require('../deps/getopt').getopt;
+var qunit = require('../lib/qunit');
+
+function usage(code) {
+    var lines = [
+        "qunit " + VERSION + " -- quick little unit test runner",
+        "",
+        "options:",
+        "    -C, --no-color",
+        "        do not colorize console output",
+        "    -f PATT, --filter PATT",
+        "        TBD: only run tests matching the pattern",
+        "    -h, --help",
+        "        this help message",
+        "    --stop-on-failure",
+        "        stop the tests as soon as one of them fails",
+        "    -v, --verbose",
+        "        TBD: show more info",
+    ];
+    process.stdout.write(lines.join("\n") + "\n");
+    process.exit(code);
+}
+
+var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-stop-on-failure)v(-verbose)");
+if (opts.h || opts.help) return usage(0);
+
+// if output not going to the console, do not colorize
+if (!tty.isatty(1)) opts.C = true;
+
+var suiteOptions = {
+    noColor: opts.C || opts['no-color'] || false,
+    filter: opts.f || opts.filter || false,
+    stopOnFailure: opts['stop-on-failure'] || false,
+    verbose: opts.v || opts.verbose || false,
+};
+
+var argv = process.argv.slice(2);
+if (argv.length <= 0) argv = ['test'];
+
+var startTime = Date.now();
+var runner = qunit.runTests(argv, suiteOptions, function(err) {
+    if (err) process.stdout.write(err.stack + "\n");
+    else process.stdout.write("\nOK: (" + (Date.now() - startTime) + "ms)\n");
+    // TODO: if not quiet mode, show count of files, tests, assertions
+    process.exit(err ? 2 : 0);
+});
+

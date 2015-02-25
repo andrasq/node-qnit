@@ -1,0 +1,21 @@
+{
+  "name": "node-qunit",
+  "version": "0.1.0",
+  "bin": { "qunit": "./bin/qunit" },
+  "main": "index.js",
+  "description": "simple unit test runner in the spirit of nodeunit and mocha",
+  "author": "andras@andrasq.com",
+  "license": "Apache-2.0",
+  "repository": {
+    "url": "git://github.com/andrasq/node-qunit",
+    "type": "git"
+  },
+  "keywords": [
+    "Andras",
+    "test",
+    "unit test",
+    "nodeunit",
+    "mocha",
+    "tdd"
+  ]
+}
