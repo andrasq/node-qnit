@@ -1,0 +1,9 @@
+0.1.1
+
+- QMock integration (as a dependency)
+- better error handling
+- aflow now a dependency
+
+0.1.0
+
+- initial checkin

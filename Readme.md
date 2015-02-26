@@ -29,6 +29,8 @@ where test/test-test.js contains for example:
 ## Tester Methods
 
         myTest: function(tester) {
+            tester.ok(true);
+            tester.done();
         }
 
 ### t.done( )
@@ -50,8 +52,7 @@ assert that the condition is truthy, else fail the test.
 
 ## Todo
 
-- qunit is taken, pick another name
-- build in qmock support
-- build in nodeunit compatibility
-- build in mocha compatibility
-- bundle up errors and output all at the end
+- nodeunit compatibility
+- mocha compatibility
+- bundle up errors and output all at the end (instead of interleaving)
+- use a sub-millisecond timer for reporting test times

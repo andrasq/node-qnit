@@ -17,5 +17,9 @@
     "nodeunit",
     "mocha",
     "tdd"
-  ]
+  ],
+  "dependencies": {
+    "qmock": "0.0.8",
+    "aflow": "0.9.0"
+  }
 }
