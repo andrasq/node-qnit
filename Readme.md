@@ -1,5 +1,5 @@
-nodequnit
-=========
+node-qunit
+==========
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
