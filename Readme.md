@@ -45,10 +45,23 @@ console.log, and is faster to type.  The intent is to have a tracer call that
 can run asynchronously and not add much overhead to the test being timed, in
 case the test is timing sensitive (TODO: verify in practice)
 
-### t.ok( condition )
+### Assertions
+
+#### t.ok( condition )
 
 assert that the condition is truthy, else fail the test.
 
+### Mocks
+
+#### t.getMock( objectOrConstructor, [methodsToMock], [constructorArgs] )
+
+#### t.getMockSkipConstructor( object, [methods] )
+
+TODO:
+
+- t.equal
+- t.notEqual
+- t.deepEqual
 
 ## Todo
 
@@ -56,3 +69,4 @@ assert that the condition is truthy, else fail the test.
 - mocha compatibility
 - bundle up errors and output all at the end (instead of interleaving)
 - use a sub-millisecond timer for reporting test times
+- gather result rows into json and output with a json-to-text reporter module
