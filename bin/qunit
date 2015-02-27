@@ -52,7 +52,7 @@ if (argv.length <= 0) argv = ['test'];
 
 var startTime = Date.now();
 var _isRunning = true;
-var runner = qunit.runTests(argv, suiteOptions, function(err) {
+var runner = qunit.runFiles(argv, suiteOptions, function(err) {
     _isRunning = false;
     if (err) process.stdout.write(err.stack + "\n");
     else process.stdout.write("\nOK: (" + (Date.now() - startTime) + "ms)\n");
