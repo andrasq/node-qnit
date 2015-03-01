@@ -68,5 +68,4 @@ TODO:
 - nodeunit compatibility
 - mocha compatibility
 - bundle up errors and output all at the end (instead of interleaving)
-- use a sub-millisecond timer for reporting test times
 - gather result rows into json and output with a json-to-text reporter module
