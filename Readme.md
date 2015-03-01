@@ -108,15 +108,25 @@ function.
 
 ### Mocks
 
-#### t.getMock( objectOrConstructor, [methodsToMock], [constructorArgs] )
+QUnit supports mock test doubles using the
+[QMock](https://npmjs.org/package/qmock) library.  Refer to qmock for full
+details.
 
-#### t.getMockSkipConstructor( object, [methods] )
+#### t.getMock( object, [methodsToMock], [constructorArgs] )
 
-TODO:
+Create a test double.  `object` can be an existing object or a constructor
+function.  The mock double will be instanceof the same class and having the
+same methods.  The `methodsToMock` list of methods will be stubbed out
+and replaced with no-op methods.  `constructorArgs` will be used if object
+is a constructor function.
 
-- t.equal
-- t.notEqual
-- t.deepEqual
+#### t.getMockSkipConstructor( constructor, [methods] )
+
+Similar to getMock, but does not run the constructor function.  The mock
+double will be instanceof the constructor and will inherit the same methods
+as a new instance.  If constructor is an object (not a constructor function),
+the call behaves like getMock.
+
 
 ## Todo
 
