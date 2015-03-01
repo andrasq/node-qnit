@@ -32,6 +32,14 @@ module.exports = {
                 t.ok(this.x == 1);
                 t.done();
             },
+
+            'nested tests': {
+                'should see setup values': function(t) {
+// FIXME: this.x should be set
+                    t.equal(this.x, 1);
+                    t.done();
+                },
+            },
         },
 
         'tearDown after': {
@@ -52,6 +60,12 @@ module.exports = {
         },
     },
 
+    'should report error if test does not call done': function(t) {
+// FIXME: if t.done() not called, tests do not hang (!)
+// rather the tests exit with an error (?!)
+// Should wait for 2 sec
+    },
+
     'assertions': {
         'should throw Error on assertion failure': function(t) {
             try { t.ok(false); }
@@ -61,7 +75,6 @@ module.exports = {
         'should throw error if equal fails': function(t) {
             try { t.equal(1, 2); t.fail("nope"); }
             catch (err) { t.ok(true); t.done(); }
-// FIXME: if t.done() not called, tests do not hang (!)
         },
     },
 
