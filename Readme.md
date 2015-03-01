@@ -47,7 +47,8 @@ case the test is timing sensitive (TODO: verify in practice)
 
 ### Assertions
 
-The assertions from the `assert` module are available as `tester` methods.  If
+The assertions from the [`assert`](http://nodejs.org/api/assert.html)
+module are available as `tester` methods.  If
 the assertion fails, an exception is thrown that qunit catches and reports as
 a failed unit test.
 
@@ -109,8 +110,7 @@ function.
 ### Mocks
 
 QUnit supports mock test doubles using the
-[QMock](https://npmjs.org/package/qmock) library.  Refer to qmock for full
-details.
+[QMock](https://npmjs.org/package/qmock) library.  Refer to qmock for details.
 
 #### t.getMock( object, [methodsToMock], [constructorArgs] )
 
