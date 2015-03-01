@@ -50,7 +50,8 @@ case the test is timing sensitive (TODO: verify in practice)
 The assertions from the [`assert`](http://nodejs.org/api/assert.html)
 module are available as `tester` methods.  If
 the assertion fails, an exception is thrown that qunit catches and reports as
-a failed unit test.
+a failed unit test.  The rest of that test function is omitted, and the next
+test is run (unless --stop-on-failue was specified on the command line)
 
 All assertions accept an optional message.  If provided, the message will be
 included in the assertion diagnostics.  It can be helpful to explain what
@@ -73,11 +74,12 @@ coercive inequality, `a != b`
 
 #### t.deepEqual( a, b, [message] )
 
-recursive equality, objects and arrays have equal elements
+recursive equality, objects and arrays have equal elements.  Element
+comparisons are coercive `==`, thus `[1]` and `[true]` are deepEqual.
 
 #### t.notDeepEqual( a, b, [message] )
 
-recursive inequality, objects and arrays are not equal
+recursive inequality, objects and arrays differ.
 
 #### t.strictEqual( a, b, [message] )
 

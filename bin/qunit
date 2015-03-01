@@ -7,7 +7,9 @@
  * Licensed under the Apache License, Version 2.0
  */
 
-var VERSION = "v0.1.1";
+var package = require('../package.json');
+
+var VERSION = package.version;
 
 var fs = require('fs');
 var tty = require('tty');
