@@ -50,23 +50,6 @@ var suiteOptions = {
 var argv = process.argv.slice(2);
 if (argv.length <= 0) argv = ['test'];
 
-var startTime = Date.now();
-var _isRunning = true;
-var runner = qunit.runFiles(argv, suiteOptions, function(err) {
-    _isRunning = false;
-    if (err) process.stdout.write(err.stack + "\n");
-    else process.stdout.write("\nOK: (" + (Date.now() - startTime) + "ms)\n");
-    // TODO: if not quiet mode, show count of files, tests, assertions
+var runner = qunit.runSuite(argv, suiteOptions, function(err) {
     process.exit(err ? 2 : 0);
-});
-
-process.on('exit', function() {
-    if (_isRunning) {
-        process.stdout.write("\nunexpected exit, tests not done (" + (Date.now() - startTime) + "ms)\n");
-    }
-});
-
-process.on('uncaughtException', function(err) {
-    process.stdout.write("uncaught error\n" + err.stack);
-    process.exit(2);
 });

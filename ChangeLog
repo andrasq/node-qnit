@@ -1,3 +1,8 @@
+0.2.0
+
+- move test running logic out of bin/qunit into lib/qunit.js
+- add all assertions from assert module
+
 0.1.1
 
 - QMock integration (as a dependency)

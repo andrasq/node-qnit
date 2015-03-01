@@ -54,17 +54,14 @@ module.exports = {
 
     'assertions': {
         'should throw Error on assertion failure': function(t) {
-            try { if (t.ok) t.ok(false); }
+            try { t.ok(false); }
             catch (err) { t.ok(true); t.done(); }
         },
 
         'should throw error if equal fails': function(t) {
-// FIXME: an error thrown in the test is caught but not reported:
-// FIXME:  ... and is line-itemed twice
-throw new Error("die");
+            try { t.equal(1, 2); t.fail("nope"); }
+            catch (err) { t.ok(true); t.done(); }
 // FIXME: if t.done() not called, tests do not hang (!)
-            try { if (t.equal) t.equal(1, 2); t.done(); }
-            catch (err) { t.done(); }
         },
     },
 
