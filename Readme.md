@@ -19,9 +19,9 @@ where test/test-test.js contains for example:
                 this.test = 1;
             },
 
-            'should run test': function(t) {
-                t.ok(this.test == 1);
-                t.done();
+            'should run test': function(tester) {
+                tester.ok(this.test == 1);
+                tester.done();
             },
         };
 
@@ -47,9 +47,53 @@ case the test is timing sensitive (TODO: verify in practice)
 
 ### Assertions
 
-#### t.ok( condition )
+The assertions from the `assert` module are available as `tester` methods.  If
+the assertion fails, an exception is thrown that qunit catches and reports as
+a failed unit test.
 
-assert that the condition is truthy, else fail the test.
+#### t.ok( condition, [message] )
+
+assert that the condition is truthy, else fail the test.  Also available as
+`t.assert`
+
+#### t.equal( a, b, [message] )
+
+coercive equality test, `a == b`
+
+#### t.notEqual( a, b, [message] )
+
+coercive inequality, `a != b`
+
+#### t.deepEqual( a, b, [message] )
+
+recursive equality, objects and arrays have equal elements
+
+#### t.notDeepEqual( a, b, [message] )
+
+recursive inequality, objects and arrays are not equal
+
+#### t.strictEqual( a, b, [message] )
+
+strict equality test, `a === b`
+
+#### t.notStrictEqual( a, b, [message] )
+
+strict inequality test, `a !== b`
+
+#### t.throws( )
+
+#### t.doesNotThrow( )
+
+#### t.ifError( err )
+
+fail the test if the error is set
+
+#### t.fail( )
+
+Fail the test.
+
+This is different from `assert.fail`, which is an internal assert helper
+function.
 
 ### Mocks
 

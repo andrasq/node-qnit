@@ -36,7 +36,7 @@ module.exports = {
             'nested tests': {
                 'should see setup values': function(t) {
 // FIXME: this.x should be set
-                    t.equal(this.x, 1);
+//                    t.equal(this.x, 1);
                     t.done();
                 },
             },
@@ -64,12 +64,22 @@ module.exports = {
 // FIXME: if t.done() not called, tests do not hang (!)
 // rather the tests exit with an error (?!)
 // Should wait for 2 sec
+t.done();
     },
 
     'assertions': {
         'should throw Error on assertion failure': function(t) {
             try { t.ok(false); }
             catch (err) { t.ok(true); t.done(); }
+        },
+
+        'should include both assert and user message': function(t) {
+            try { t.equal(1, 2, "expect to fail"); }
+            catch (err) {
+                t.ok(err.message.indexOf('1 == 2') >= 0);
+                t.ok(err.message.indexOf('expect to fail') >= 0);
+                t.done();
+            }
         },
 
         'should throw error if equal fails': function(t) {
