@@ -51,6 +51,12 @@ The assertions from the `assert` module are available as `tester` methods.  If
 the assertion fails, an exception is thrown that qunit catches and reports as
 a failed unit test.
 
+All assertions accept an optional message.  If provided, the message will be
+included in the assertion diagnostics.  It can be helpful to explain what
+failed.  Note that qunit includes both the `assert` failure message and the
+user-provided message; `assert` omits its diagnostic showing the failed values
+if the user had provided their own message.
+
 #### t.ok( condition, [message] )
 
 assert that the condition is truthy, else fail the test.  Also available as
@@ -80,9 +86,14 @@ strict equality test, `a === b`
 
 strict inequality test, `a !== b`
 
-#### t.throws( )
+#### t.throws( block, [error], [message] )
 
-#### t.doesNotThrow( )
+confirm that the block throws the specified error.  Error can be an Error
+object, a RegExp, or a validator function.
+
+#### t.doesNotThrow( block, [message] )
+
+confirm that the block does not throw an error.
 
 #### t.ifError( err )
 
