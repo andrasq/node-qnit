@@ -104,8 +104,7 @@ fail the test if the error is set
 
 Fail the test.
 
-This is different from `assert.fail`, which is an internal assert helper
-function.
+This is different from `assert.fail`, which is an internal helper function.
 
 ### Mocks
 
