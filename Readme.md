@@ -26,6 +26,20 @@ where test/test-test.js contains for example:
         };
 
 
+## Command Line
+
+`qunit [options] [file] [file2 ...]`
+
+Runs the unit tests in the specified files, or all tests in the `./test`
+directory.
+
+Options:
+
+- `-C` - do not colorize console output (TODO: feature not implemented)
+- `-h, --help` - built in usage
+- `--stop-on-failure` - do not continue with the test suite if one of the tests fails
+- `-v, --verbose` - show more information about the tests run (TODO: not implemented)
+
 ## Tester Methods
 
         myTest: function(tester) {
