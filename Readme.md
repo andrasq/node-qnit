@@ -54,6 +54,8 @@ When test function is complete, require that the number of assertions run be
 equal to count.  Count must be positive.  The test will fail if the assertion
 count is different.
 
+TODO: `expect` does not wait any additional time for the test to complete
+
 ### t.done( )
 
 callback that must be called when the test finishes
@@ -65,6 +67,19 @@ format string and writes them to process.stdout.  Recognizes more formats than
 console.log, and is faster to type.  The intent is to have a tracer call that
 can run asynchronously and not add much overhead to the test being timed, in
 case the test is timing sensitive (TODO: verify in practice)
+
+printf supports the following conversions:
+
+- `%s` - interpolate a string into the output
+- `%d` - an decimal number.  Unlike traditional `printf`, this will print floats as floats.
+- `%f` - a floating-point value
+- `%i` - a decimal integer.  The integer conversions truncate the value.
+- `%x` - a hexadecimal integer
+- `%o` - an octal integer
+- `%b` - a binary integer
+- `%c` - the character value of the first character of the string argument
+- `%%` - the `%` escape character itself
+- `%O` - an object formatted with util.inspect to depth: 6
 
 ### Assertions
 
@@ -83,7 +98,7 @@ if the user had provided their own message.
 #### t.ok( condition, [message] )
 
 assert that the condition is truthy, else fail the test.  Also available as
-`t.assert`
+`t.assert()`
 
 #### t.equal( a, b, [message] )
 
@@ -125,7 +140,8 @@ fail the test if the error is set
 
 #### t.fail( )
 
-Fail the test.
+Fail the test.  `fail()` is not counted as an assertion, it's an outright
+failure.
 
 This is different from `assert.fail`, which is an internal helper function.
 
