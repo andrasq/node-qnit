@@ -69,6 +69,7 @@ module.exports = {
 // FIXME: if t.done() not called, tests do not hang (!)
 // rather the tests exit with an error (?!)
 // Should wait for 2 sec
+t.expect(3);
 t.done();
     },
 
@@ -88,6 +89,7 @@ t.done();
         },
 
         'should throw error if equal fails': function(t) {
+t.expect(3);
             try { t.equal(1, 2); t.fail("nope"); }
             catch (err) { t.ok(true); t.done(); }
         },

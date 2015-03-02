@@ -48,6 +48,10 @@ Options:
             tester.done();
         }
 
+### t.expect( count )
+
+TBD: stub method for nodeunit compatibility.
+
 ### t.done( )
 
 callback that must be called when the test finishes
