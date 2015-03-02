@@ -35,7 +35,7 @@ directory.
 
 Options:
 
-- `-C` - do not colorize console output (TODO: feature not implemented)
+- `-C` - do not colorize console output.  Piped output is never colorized.
 - `-f PATT, --filter PATT` - run only the tests matching the pattern (TODO: not implemented)
 - `-h, --help` - built in usage
 - `--stop-on-failure` - do not continue with the test suite if one of the tests fails

@@ -34,9 +34,14 @@ module.exports = {
             },
 
             'nested tests': {
+                setUp: function(done) {
+                    this.nested = 2;
+                    done();
+                },
+
                 'should see setup values': function(t) {
-// FIXME: this.x should be set
-//                    t.equal(this.x, 1);
+                    t.equal(this.x, 1, "expect to see parent initialized fields");
+                    t.equal(this.nested, 2, "expect to see our initialized fields");
                     t.done();
                 },
             },
