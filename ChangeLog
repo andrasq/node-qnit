@@ -2,6 +2,7 @@
 
 - sub-millisecond timesetamps
 - nested hierarchical setUp / tearDown
+- bold filenames on stdout output
 
 0.2.0
 
