@@ -71,7 +71,7 @@ case the test is timing sensitive (TODO: verify in practice)
 printf supports the following conversions:
 
 - `%s` - interpolate a string into the output
-- `%d` - an decimal number.  Unlike traditional `printf`, this will print floats as floats.
+- `%d` - a decimal number.  Unlike traditional `printf`, this will print floats as floats.
 - `%f` - a floating-point value
 - `%i` - a decimal integer.  The integer conversions truncate the value.
 - `%x` - a hexadecimal integer
