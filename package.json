@@ -1,6 +1,6 @@
 {
   "name": "node-qunit",
-  "version": "0.3.0",
+  "version": "0.3.1-pre",
   "bin": { "qunit": "./bin/qunit" },
   "main": "index.js",
   "description": "simple unit test runner in the spirit of nodeunit and mocha",
