@@ -50,7 +50,9 @@ Options:
 
 ### t.expect( count )
 
-TBD: stub method for nodeunit compatibility.
+When test function is complete, require that the number of assertions run be
+equal to count.  Count must be positive.  The test will fail if the assertion
+count is different.
 
 ### t.done( )
 
