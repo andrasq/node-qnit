@@ -102,7 +102,8 @@ assert that the condition is truthy, else fail the test.  Also available as
 
 #### t.equal( a, b, [message] )
 
-coercive equality test, `a == b`
+coercive equality test, `a == b`.  Like in nodeunit and phpunit, this assertion
+is also available by the alias `equals`.
 
 #### t.notEqual( a, b, [message] )
 
