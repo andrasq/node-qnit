@@ -81,6 +81,22 @@ printf supports the following conversions:
 - `%%` - the `%` escape character itself
 - `%O` - an object formatted with util.inspect to depth: 6
 
+Printf supports basic conversion flags for field width control, per the regex
+`(-?)(0?)([1-9][0-9]*)`.  E.g., `%20d` will interpolate a number into a field
+20 characters wide.  If the value is wider then the field width, it will not
+be truncated.  The truncating field width specifier `'.'` is not supported.
+
+- `-` - left-align the value in the field
+- `0` - zero pad the field (default is to pad with spaces)
+- `NNN` - a decimal integer that specifies the field width
+
+Examples
+
+        ("%5d", 123)            => "  123"
+        ("0x%04x", 123)         => "0x007b"
+        ("%10s", "Hello")       => "     Hello"
+        ("%-10s", "Hello")      => "Hello     "
+
 ### Assertions
 
 The assertions from the [`assert`](http://nodejs.org/api/assert.html)

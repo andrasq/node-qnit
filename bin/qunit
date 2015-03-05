@@ -27,17 +27,26 @@ function usage(code) {
         "        TBD: only run tests matching the pattern",
         "    -h, --help",
         "        this help message",
-        "    --stop-on-failure",
+        "    --no-exit",
+        "        do not call process.exit() when the tests are done",
+        "    --stop-on-failure, -b, --bail",
         "        stop the tests as soon as one of them fails",
         "    -v, --verbose",
         "        TBD: show more info",
+        "    -V, --version",
+        "        print the qunit version number and exit",
     ];
     process.stdout.write(lines.join("\n") + "\n");
     process.exit(code);
 }
 
-var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-stop-on-failure)v(-verbose)");
+var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)(-stop-on-failure)b(-bail)v(-verbose)V(-version)");
 if (opts.h || opts.help) return usage(0);
+
+if (opts.V || opts.version) {
+    process.stdout.write("qunit " + VERSION + "\n");
+    return;
+}
 
 // if output not going to the console, do not colorize
 if (!tty.isatty(1)) opts.C = true;
@@ -45,7 +54,7 @@ if (!tty.isatty(1)) opts.C = true;
 var suiteOptions = {
     noColor: opts.C || opts['no-color'] || false,
     filter: opts.f || opts.filter || false,
-    stopOnFailure: opts['stop-on-failure'] || false,
+    stopOnFailure: opts['stop-on-failure'] || opts.b || opts.bail || false,
     verbose: opts.v || opts.verbose || false,
 };
 
@@ -53,5 +62,5 @@ var argv = process.argv.slice(2);
 if (argv.length <= 0) argv = ['test'];
 
 var runner = qunit.runSuite(argv, suiteOptions, function(err) {
-    process.exit(err ? 2 : 0);
+    if (!suiteOptions.noExit) process.exit(err ? 2 : 0);
 });
