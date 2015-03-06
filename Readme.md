@@ -77,7 +77,7 @@ printf supports the following conversions:
 - `%x` - a hexadecimal integer
 - `%o` - an octal integer
 - `%b` - a binary integer
-- `%c` - the character represented by the unicode code point value of the argument
+- `%c` - the character represented by the given unicode code point
 - `%%` - the `%` escape character itself
 - `%O` - an object formatted with util.inspect to depth: 6
 
