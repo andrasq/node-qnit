@@ -66,10 +66,11 @@ module.exports = {
     },
 
     'should report error if test does not call done': function(t) {
-// FIXME: if t.done() not called, tests do not hang (!)
-// rather the tests exit with an error (?!)
-// Should wait for 2 sec
-t.done();
+        var x;
+        //for (var i=0; i<2000000000; i++) x = 1;
+        // TODO: comment out next line and look for the error
+        // TODO: move this test into separate file, and run on file
+        t.done();
     },
 
     'assertions': {

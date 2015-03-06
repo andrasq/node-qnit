@@ -29,7 +29,7 @@ module.exports = {
         t.done();
     },
 
-    'speed': function(t) {
+    'speed of 10k string+num+obj': function(t) {
         for (var i=0; i<1000; i++) {
             var s = t.sprintf("String %s num %05d %O\n", "some string", 123, {a: 1, b: 2.5, c: 'c'});
             //var s = t.sprintf("String %s num %d %O\n", "some string", 123, {a: 1, b: 2.5, c: 'c'});
