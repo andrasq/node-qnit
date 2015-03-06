@@ -44,9 +44,9 @@ Options:
 ## Nodeunit Unit Tests
 
 Nodeunit runs the test exported via `module.exports`.  The test can be a test
-function or an object containing test functions.  Functions are invoked as
-tests, , objects get their properties walked, with function properties are
-invoked as tests, and object properties recursed into.
+function or an object containing test functions and/or test objects. Functions
+are invoked as tests, objects get their properties walked, with function
+properties are invoked as tests, and object properties recursed into.
 
 Each test function gets a newly created empty object that is set to `this`
 when the test is running.  The test is passed a single parameter which is the
