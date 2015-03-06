@@ -41,6 +41,58 @@ Options:
 - `--stop-on-failure` - do not continue with the test suite if one of the tests fails
 - `-v, --verbose` - show more information about the tests run (TODO: not implemented)
 
+## Nodeunit Unit Tests
+
+Nodeunit runs the test exported via `module.exports`.  The test can be a test
+function or an object containing test functions.  Functions are invoked as
+tests, , objects get their properties walked, with function properties are
+invoked as tests, and object properties recursed into.
+
+Each test function gets a newly created empty object that is set to `this`
+when the test is running.  The test is passed a single parameter which is the
+tester object (usually called `t`) having a special method `done`.  `t.done()`
+must be called for the test to succeed.
+
+Each test object can have two special properties, `setUp` and `tearDown`.  All
+other properties are test functions or nested test objects.  If the `setUp`
+function exists, it will be called before every contained test function, both
+contained directly and indirectly inside a nested test object.  `setUp` sees
+the same `this` that the test function will see; changes made to properties
+`this.x` in `setUp` will be visible inside the test function and also in
+`tearDown`.  `tearDown` is similar to `setUp` but is called after the test
+calls done().
+
+Each test function when it runs invokes all setUp and tearDown calls in all
+enclosing objects.  `setUp` and `tearDown` functions are paired and nest
+around the test:  `setUp` functions are called in outermost to innermost
+order, the test function is run, then the `tearDown` functions are run in the
+innermost to outermost order.
+
+        module.exports = {
+            setUp: function(done) {
+                this.x = 1;
+                done();
+            },
+            tearDown: function(done) {
+                this.x = null;
+                done();
+            },
+            'test function': function(t) {
+                assert(this.x, 1);
+                t.done();
+            },
+            'nested tests': {
+                setUp: function(done) {
+                    this.y = 2;
+                },
+                'nested test function': function(t) {
+                    assert(this.x, 1);
+                    assert(this.2, 2);
+                    t.done()
+                },
+            },
+        };
+
 ## Tester Methods
 
         myTest: function(tester) {
