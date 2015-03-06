@@ -1,9 +1,10 @@
-0.3.1
+0.4.0
 
 - --bail mocha compat switch
 - --version switch
 - printf field width flags
 - sprintf method
+- 2-sec timeout for test to call done()
 
 0.3.0
 
