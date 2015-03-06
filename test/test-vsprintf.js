@@ -16,9 +16,9 @@ module.exports = {
     },
 
     'should interpolate chars': function(t) {
-        t.equal(t.sprintf("%c", 'A'), 0x41);
-        t.equal(t.sprintf("%c", 'a'), 0x61);
-        t.equal(t.sprintf("%c", ' '), 0x20);
+        t.equal(t.sprintf("%c", 65), 'A');
+        t.equal(t.sprintf("%c", 97), 'a');
+        t.equal(t.sprintf("%c", 32), ' ');
         t.done();
     },
 
