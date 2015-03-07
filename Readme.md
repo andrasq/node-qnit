@@ -249,3 +249,4 @@ the call behaves like getMock.
 - mocha compatibility
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
+- add `t.skip()` to document intentionally skipped (not passing, not failed) tests
