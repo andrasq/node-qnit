@@ -114,15 +114,17 @@ Mocha installs global functions `describe`, `it`, `before`, `after`,
 that of nodeunit.
 
 `describe` starts a new test object, and is passed a callback that builds the
-test hierarchy.  `describe` can contain `it` tests or nested `desribe`s.  `it`
+test hierarchy.  `describe` can contain `it` tests or nested `desribe`'s.  `it`
 specifies a test to run; it is passed a label and the test function itself.
 `before` and `after` pair and are called before and after the tests in the
 current test object, respectively.  `beforeEach` and `afterEach` are called
 before and after every `it` test.
 
-Note: unlike nodeunit, `before` and `after` are run just once for each
+Note: unlike Nodeunit, `before` and `after` are run just once for each
 nested `describe`, not once for each nested test.  This allows expensive
-setup to be run only once and be reused by multiple tests.
+setup to be run only once and be reused by multiple tests.  Like Nodeunit,
+`beforeEach` and `afterEach` methods are invoked for every `it` test, both
+those in the current `describe` and those nested in contained `describe`'s.
 
 State is shared between the tests and the setup/teardown methods via closures.
 The enclosing `describe` must declare the shared variables for them to be
