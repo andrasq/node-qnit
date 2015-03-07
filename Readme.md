@@ -97,9 +97,9 @@ called in outermost to innermost order, the test function is run, then the
 
 ## Tester Methods
 
-        myTest: function(tester) {
-            tester.ok(true);
-            tester.done();
+        myTest: function(t) {
+            t.ok(true);
+            t.done();
         }
 
 ### t.expect( count )
