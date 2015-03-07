@@ -38,8 +38,10 @@ Options:
 - `-C` - do not colorize console output.  Piped output is never colorized.
 - `-f PATT, --filter PATT` - run only the tests matching the pattern (TODO: not implemented)
 - `-h, --help` - built in usage
+- `--no-exit` - do not call process.exit() when done, wait for a clean shutdown
 - `--stop-on-failure` - do not continue with the test suite if one of the tests fails
 - `-v, --verbose` - show more information about the tests run (TODO: not implemented)
+- `-V, --version` - print the qunit version and exit
 
 ## Nodeunit Unit Tests
 
@@ -61,6 +63,10 @@ sees the same `this` that the test function will see; changes made to
 properties `this.x` in `setUp` will be visible inside the test function and
 also in `tearDown`.  `tearDown` is similar to `setUp` but is called after the
 test calls done().
+
+Note: unlike Mocha, Nodeunit runs every enclosing setUp method for each
+test run, it does not distinguish top-level global initialization from
+test-specific local initialization.
 
 Each test function when it runs invokes all setUp and tearDown calls from all
 enclosing objects.  `setUp` and `tearDown` functions are paired and nest
@@ -109,6 +115,10 @@ specifies a test to run; it is passed a label and the test function itself.
 `before` and `after` pair and are called before and after the tests in the
 current test object, respectively.  `beforeEach` and `afterEach` are called
 before and after every `it` test.
+
+Note: unlike nodeunit, `before` and `after` are run just once for a
+nested `describe`, not once for each nested test.  This allows expensive
+setup to be reused, and be run only once at the start of the suite.
 
 State is shared between the tests and the setup/teardown methods via closures.
 The enclosing `describe` must declare the shared variables for them to be
