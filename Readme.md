@@ -66,9 +66,11 @@ properties `this.x` in `setUp` will be visible inside the test function and
 also in `tearDown`.  `tearDown` is similar to `setUp` but is called after the
 test calls done().
 
-Note: unlike Mocha, Nodeunit runs every enclosing setUp method for each
-test run, it does not distinguish top-level global initialization from
-test-specific local initialization.
+Note: unlike Mocha, Nodeunit runs every enclosing setUp method for each test
+run, it does not distinguish top-level global initialization from test-specific
+local initialization.  Using Mocha terminology, `setUp` and `tearDown`
+correspond to `beforeEach` and `afterEach`; Nodeunit does not have a `before`
+or an `after` equivalent.
 
 Each test function when it runs invokes all setUp and tearDown calls from all
 enclosing objects.  `setUp` and `tearDown` functions are paired and nest
