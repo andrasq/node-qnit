@@ -116,9 +116,9 @@ specifies a test to run; it is passed a label and the test function itself.
 current test object, respectively.  `beforeEach` and `afterEach` are called
 before and after every `it` test.
 
-Note: unlike nodeunit, `before` and `after` are run just once for a
+Note: unlike nodeunit, `before` and `after` are run just once for each
 nested `describe`, not once for each nested test.  This allows expensive
-setup to be reused, and be run only once at the start of the suite.
+setup to be run only once and be reused by multiple tests.
 
 State is shared between the tests and the setup/teardown methods via closures.
 The enclosing `describe` must declare the shared variables for them to be
