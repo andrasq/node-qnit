@@ -105,10 +105,20 @@ called in outermost to innermost order, the test function is run, then the
 ### t.expect( count )
 
 When test function is complete, require that the number of assertions run be
-equal to count.  Count must be positive.  The test will fail if the assertion
-count is different.
+equal to count.  The test will fail if the number of assertions made differs
+from the expected assertion count.
 
 TODO: `expect` does not wait any additional time for the test to complete
+
+#### t.ok( condition, [message] )
+
+assert that the condition is truthy, else fail the test.  Also available as
+`t.assert()`
+
+#### t.fail( )
+
+Fail the test.  `fail()` is not counted as an assertion, it's an outright
+failure.  Failed tests do not have their tearDown methods called.
 
 ### t.done( )
 
@@ -154,11 +164,13 @@ Examples
 
 ### Assertions
 
-The assertions from the [`assert`](http://nodejs.org/api/assert.html)
-module are available as `tester` methods.  If
-the assertion fails, an exception is thrown that qunit catches and reports as
-a failed unit test.  The rest of that test function is omitted, and the next
-test is run (unless --stop-on-failue was specified on the command line)
+The assertions from the [`assert`](http://nodejs.org/api/assert.html) module
+are available as `tester` methods.  If the assertion fails, an exception is
+thrown that qunit catches and reports as a failed unit test.  The rest of that
+test function is omitted, and the next test is run (unless --stop-on-failue
+was specified on the command line).  Tests that fail an assertion will
+immediately stop, will not run any more assertions, and will not have their
+`tearDown` methods called.
 
 All assertions accept an optional message.  If provided, the message will be
 included in the assertion diagnostics.  It can be helpful to explain what
@@ -166,9 +178,9 @@ failed.  Note that qunit includes both the `assert` failure message and the
 user-provided message; `assert` omits its diagnostic showing the failed values
 if the user had provided their own message.
 
-#### t.ok( condition, [message] )
+#### t.assert( condition, [message] )
 
-assert that the condition is truthy, else fail the test.  Also available as
+assert that the condition is truthy, else fail the test.  Same as `t.ok()`.
 `t.assert()`
 
 #### t.equal( a, b, [message] )
@@ -209,13 +221,6 @@ confirm that the block does not throw an error.
 #### t.ifError( err )
 
 fail the test if the error is set
-
-#### t.fail( )
-
-Fail the test.  `fail()` is not counted as an assertion, it's an outright
-failure.
-
-This is different from `assert.fail`, which is an internal helper function.
 
 ### Mocks
 
