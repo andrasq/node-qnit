@@ -3,25 +3,27 @@ node-qunit
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
-WORK IN PROGRESS
+NOTE: As of version 0.4.0, qunit can run all nodeunit unit tests.  This will
+most likely change, however, since I prefer the mocha setUp/tearDown semantics.
 
 
 ## Summary
 
-Nodeunit-like utility usage:
+Nodeunit-like command-line usage:
 
-        bin/qunit test/
+        npm install -g qunit
+        qunit [testdir|testfile] [...]
 
-where test/test-test.js contains for example:
+where testdir/testfile.js contains for example:
 
         module.exports = {
             setUp: function(done) {
                 this.test = 1;
             },
 
-            'should run test': function(tester) {
-                tester.ok(this.test == 1);
-                tester.done();
+            'should run test': function(t) {
+                t.ok(this.test == 1);
+                t.done();
             },
         };
 
