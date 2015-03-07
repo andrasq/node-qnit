@@ -46,27 +46,29 @@ Options:
 Nodeunit runs the test exported via `module.exports`.  The test can be a test
 function or an object containing test functions and/or test objects. Functions
 are invoked as tests, objects get their properties walked, with function
-properties are invoked as tests, and object properties recursed into.
+properties invoked as tests, and object properties recursed into.
 
 Each test function gets a newly created empty object that is set to `this`
-when the test is running.  The test is passed a single parameter which is the
-tester object (usually called `t`) having a special method `done`.  `t.done()`
-must be called for the test to succeed.
+when the test is run.  The test function is passed a single parameter,
+the tester object (usually called `t`), having a special method `done`.
+`t.done()` must be called for the test to succeed.
 
 Each test object can have two special properties, `setUp` and `tearDown`.  All
 other properties are test functions or nested test objects.  If the `setUp`
-function exists, it will be called before every contained test function, both
-contained directly and indirectly inside a nested test object.  `setUp` sees
-the same `this` that the test function will see; changes made to properties
-`this.x` in `setUp` will be visible inside the test function and also in
-`tearDown`.  `tearDown` is similar to `setUp` but is called after the test
-calls done().
+function exists, it will be called before every contained test function,
+contained both directly or indirectly inside a nested test object.  `setUp`
+sees the same `this` that the test function will see; changes made to
+properties `this.x` in `setUp` will be visible inside the test function and
+also in `tearDown`.  `tearDown` is similar to `setUp` but is called after the
+test calls done().
 
-Each test function when it runs invokes all setUp and tearDown calls in all
+Each test function when it runs invokes all setUp and tearDown calls from all
 enclosing objects.  `setUp` and `tearDown` functions are paired and nest
-around the test:  `setUp` functions are called in outermost to innermost
-order, the test function is run, then the `tearDown` functions are run in the
-innermost to outermost order.
+around the test:  a new `this` object is created, the `setUp` functions are
+called in outermost to innermost order, the test function is run, then the
+`tearDown` functions are run in the innermost to outermost order.
+
+### Example
 
         module.exports = {
             setUp: function(done) {
@@ -110,7 +112,8 @@ TODO: `expect` does not wait any additional time for the test to complete
 
 ### t.done( )
 
-callback that must be called when the test finishes
+callback that must be called when the test finishes.  If not called, the test
+will fail (error out), and the tearDown methods will not be called.
 
 ### t.printf( format, [arg1], [...] )
 
