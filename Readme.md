@@ -187,6 +187,9 @@ be truncated.  The truncating field width specifier `'.'` is not supported.
 - `0` - zero pad the field (default is to pad with spaces)
 - `NNN` - a decimal integer that specifies the field width
 
+As a special case, the field width of a %O conversion is taken to be the depth
+for util.inspect to recurse down to.
+
 Examples
 
         ("%5d", 123)            => "  123"
