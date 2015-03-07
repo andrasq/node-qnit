@@ -95,6 +95,38 @@ called in outermost to innermost order, the test function is run, then the
             },
         };
 
+## Mocha Unit Tests
+
+NOTE: Mocha unit tests are not supported yet.
+
+Mocha installs global functions `describe`, `it`, `before`, `after`,
+`beforeEach` and `afterEach` that build up a test structure very similar to
+that of nodeunit.
+
+`describe` starts a new test object, and is passed a callback that builds the
+test hierarchy.  `describe` can contain `it` tests or nested `desribe`s.  `it`
+specifies a test to run; it is passed a label and the test function itself.
+`before` and `after` pair and are called before and after the tests in the
+current test object, respectively.  `beforeEach` and `afterEach` are called
+before and after every `it` test.
+
+State is shared between the tests and the setup/teardown methods via closures.
+The enclosing `describe` must declare the shared variables for them to be
+properly scoped.
+
+        {
+            setUp: before
+            tearDown: after
+            describe: {
+                setUp: beforeEach
+                tearDown: afterEach
+                test1: it
+                test2: it
+                // ...
+            }
+        }
+
+
 ## Tester Methods
 
         myTest: function(t) {
