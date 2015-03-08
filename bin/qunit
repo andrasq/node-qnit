@@ -31,6 +31,8 @@ function usage(code) {
         "        do not call process.exit() when the tests are done",
         "    --stop-on-failure, -b, --bail",
         "        stop the tests as soon as one of them fails",
+        "    -t, --timeout MS",
+        "        ms idle timeout to wait for a test to call done() (default 2000)",
         "    -v, --verbose",
         "        TBD: show more info",
         "    -V, --version",
@@ -40,7 +42,7 @@ function usage(code) {
     process.exit(code);
 }
 
-var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)(-stop-on-failure)b(-bail)v(-verbose)V(-version)");
+var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)(-stop-on-failure)b(-bail)t:(-timeout):v(-verbose)V(-version)");
 if (opts.h || opts.help) return usage(0);
 
 if (opts.V || opts.version) {
@@ -56,6 +58,7 @@ var suiteOptions = {
     filter: opts.f || opts.filter || false,
     stopOnFailure: opts['stop-on-failure'] || opts.b || opts.bail || false,
     verbose: opts.v || opts.verbose || false,
+    testTimeout: opts.t || opts.timeout || 2000,
 };
 
 var argv = process.argv.slice(2);
