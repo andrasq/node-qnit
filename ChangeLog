@@ -1,3 +1,14 @@
+0.5.0
+
+- introduce %A printf conversion
+- -t, --timeout switch
+
+0.4.3
+
+- doc: nodeunit & mocha writeups
+- %O field width control
+- fix: t.fail() now accepts a message like all other assertions
+
 0.4.0
 
 - --bail mocha compat switch
