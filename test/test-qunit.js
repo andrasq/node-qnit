@@ -44,6 +44,16 @@ module.exports = {
                     t.equal(this.nested, 2, "expect to see our initialized fields");
                     t.done();
                 },
+
+                'setUp should run anew every time (setup)': function(t) {
+                    this.nested = 333;
+                    t.done();
+                },
+
+                'setUp should run anew every time (check)': function(t) {
+                    t.equal(this.nested, 2);
+                    t.done();
+                },
             },
         },
 
