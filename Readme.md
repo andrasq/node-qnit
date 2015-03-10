@@ -175,9 +175,9 @@ will fail (error out), and the tearDown methods will not be called.
 
 ### t.printf( format, [arg1], [...] )
 
-simple printf-like output formatter, interpolates the arguments into the
+quick little printf-like output formatter, interpolates the arguments into the
 format string and writes them to process.stdout.  Recognizes more formats than
-console.log, and is faster to type.  The intent is to have a tracer call that
+console.log, and is easier to type.  The intent is to have a tracer call that
 can run asynchronously and not add much overhead to the test being timed, in
 case the test is timing sensitive (TODO: verify in practice)
 
@@ -192,6 +192,7 @@ printf supports the following conversions:
 - `%b` - a binary integer
 - `%c` - the character represented by the given unicode code point
 - `%%` - the `%` escape character itself
+- `%A` - an array formatted with util.inspect
 - `%O` - an object formatted with util.inspect to depth: 6
 
 Printf supports basic conversion flags for field width control, per the regex
@@ -204,7 +205,8 @@ be truncated.  The truncating field width specifier `'.'` is not supported.
 - `NNN` - a decimal integer that specifies the field width
 
 As a special case, the field width of a %O conversion is taken to be the depth
-for util.inspect to recurse down to.
+for util.inspect to recurse down to.  TODO: use a %A field width as the count
+of array elements to print.
 
 Examples
 
@@ -296,8 +298,8 @@ the call behaves like getMock.
 
 ## Todo
 
-- nodeunit compatibility
 - mocha compatibility
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
 - add `t.skip()` to document intentionally skipped (not passing, not failed) tests
+- reuse the `this` changes from `before` methods
