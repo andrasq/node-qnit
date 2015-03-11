@@ -3,6 +3,7 @@
 - introduce %A printf conversion
 - before, after, beforeEach, afterEach mocha compat methods
 - -t, --timeout switch
+- mocha compatibility (first pass)
 
 0.4.3
 

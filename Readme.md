@@ -3,9 +3,6 @@ node-qunit
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
-NOTE: As of version 0.4.0, qunit can run all nodeunit unit tests.  This will
-most likely change, however, since I prefer the mocha setUp/tearDown semantics.
-
 
 ## Summary
 
@@ -107,8 +104,6 @@ called in outermost to innermost order, the test function is run, then the
 
 ## Mocha Unit Tests
 
-NOTE: Mocha unit tests are not supported yet.
-
 Mocha installs global functions `describe`, `it`, `before`, `after`,
 `beforeEach` and `afterEach` that build up a test structure very similar to
 that of nodeunit.
@@ -129,6 +124,8 @@ those in the current `describe` and those nested in contained `describe`'s.
 State is shared between the tests and the setup/teardown methods via closures.
 The enclosing `describe` must declare the shared variables for them to be
 properly scoped.
+
+A converted Mocha structure would look something like:
 
         {
             setUp: before
@@ -298,7 +295,6 @@ the call behaves like getMock.
 
 ## Todo
 
-- mocha compatibility
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
 - add `t.skip()` to document intentionally skipped (not passing, not failed) tests
