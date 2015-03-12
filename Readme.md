@@ -299,3 +299,4 @@ the call behaves like getMock.
 - gather result rows into json and output with a json-to-text reporter module
 - add `t.skip()` to document intentionally skipped (not passing, not failed) tests
 - reuse the `this` changes from `before` methods
+- support coffeescript tests (with --require)
