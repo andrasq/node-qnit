@@ -72,7 +72,7 @@ module.exports = {
                 "top after",
             ];
             //console.log("DONE", err, err?err.stack:"", trace.length, expectTrace.length);
-            //var printf = require('../lib/vsprintf').printf;
+            //var printf = require('qprintf').printf;
             //for (var i=0; i<trace.length; i++) printf("%-3i %s %s\n", trace[i] == expectTrace[i], trace[i], expectTrace[i]);
             assert.deepEqual(trace, expectTrace);
         });
