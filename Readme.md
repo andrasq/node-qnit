@@ -14,12 +14,8 @@ Nodeunit-like command-line usage:
 where testdir/testfile.js contains for example:
 
         module.exports = {
-            setUp: function(done) {
-                this.test = 1;
-            },
-
             'should run test': function(t) {
-                t.ok(this.test == 1);
+                t.printf("running test!\n");
                 t.done();
             },
         };
@@ -39,6 +35,7 @@ Options:
 - `-h, --help` - built in usage
 - `--no-exit` - do not call process.exit() when done, wait for a clean shutdown
 - `--stop-on-failure` - do not continue with the test suite if one of the tests fails
+- `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
 - `-v, --verbose` - show more information about the tests run (TODO: not implemented)
 - `-V, --version` - print the qunit version and exit
 
@@ -87,7 +84,7 @@ called in outermost to innermost order, the test function is run, then the
                 done();
             },
             'test function': function(t) {
-                assert(this.x, 1);
+                assert.equal(this.x, 1);
                 t.done();
             },
             'nested tests': {
@@ -95,8 +92,8 @@ called in outermost to innermost order, the test function is run, then the
                     this.y = 2;
                 },
                 'nested test function': function(t) {
-                    assert(this.x, 1);
-                    assert(this.2, 2);
+                    assert.equal(this.x, 1);
+                    assert.equal(this.2, 2);
                     t.done()
                 },
             },
@@ -125,27 +122,49 @@ State is shared between the tests and the setup/teardown methods via closures.
 The enclosing `describe` must declare the shared variables for them to be
 properly scoped.
 
-A converted Mocha structure would look something like:
+Example:
 
-        {
-            setUp: before
-            tearDown: after
-            describe: {
-                setUp: beforeEach
-                tearDown: afterEach
-                test1: it
-                test2: it
-                // ...
-            }
-        }
+        describe(function() {
+            var x;
+            beforeEach(function(done) {
+                x = 1;
+                done();
+            });
+            afterEach(function(done) {
+                x = null;
+                done();
+            });
+            it('test function', function(done) {
+                assert.equal(x , 1);
+                done();
+            });
+            describe('nested tests', function() {
+                var y;
+                beforeEach(function(done) {
+                    y = 2;
+                    done();
+                });
+                it('nested test function', function(done) {
+                    assert.equal(x, 1);
+                    assert.equal(y, 2);
+                    done();
+                });
+            });
 
 
 ## Tester Methods
 
+The tester object passed in to the unit test functions has a number of useful
+methods, the most important of which is `done`.
+
         myTest: function(t) {
-            t.ok(true);
             t.done();
         }
+
+### t.done( )
+
+callback that must be called when the test finishes.  If not called, the test
+will fail (error out), and the tearDown methods will not be called.
 
 ### t.expect( count )
 
@@ -164,11 +183,6 @@ assert that the condition is truthy, else fail the test.  Also available as
 
 Fail the test.  `fail()` is not counted as an assertion, it's an outright
 failure.  Failed tests do not have their tearDown methods called.
-
-### t.done( )
-
-callback that must be called when the test finishes.  If not called, the test
-will fail (error out), and the tearDown methods will not be called.
 
 ### t.printf( format, [arg1], [...] )
 
@@ -212,7 +226,7 @@ Examples
         ("%10s", "Hello")       => "     Hello"
         ("%-10s", "Hello")      => "Hello     "
 
-### Assertions
+### Tester Assertions
 
 The assertions from the [`assert`](http://nodejs.org/api/assert.html) module
 are available as `tester` methods.  If the assertion fails, an exception is
@@ -272,7 +286,7 @@ confirm that the block does not throw an error.
 
 fail the test if the error is set
 
-### Mocks
+### Tester Mocks
 
 QUnit supports mock test doubles using the
 [QMock](https://npmjs.org/package/qmock) library.  Refer to qmock for details.

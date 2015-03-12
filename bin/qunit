@@ -31,7 +31,7 @@ function usage(code) {
         "        do not call process.exit() when the tests are done",
         "    --stop-on-failure, -b, --bail",
         "        stop the tests as soon as one of them fails",
-        "    -t, --timeout MS",
+        "    -t MS, --timeout MS",
         "        ms idle timeout to wait for a test to call done() (default 2000)",
         "    -v, --verbose",
         "        TBD: show more info",
