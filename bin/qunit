@@ -29,6 +29,8 @@ function usage(code) {
         "        this help message",
         "    --no-exit",
         "        do not call process.exit() when the tests are done",
+        "    -r PACKAGE, --require PACKAGE",
+        "        load the package before starting the tests",
         "    --stop-on-failure, -b, --bail",
         "        stop the tests as soon as one of them fails",
         "    -t MS, --timeout MS",
@@ -42,12 +44,22 @@ function usage(code) {
     process.exit(code);
 }
 
-var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)(-stop-on-failure)b(-bail)t:(-timeout):v(-verbose)V(-version)");
+var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)r:(-require):(-stop-on-failure)b(-bail)t:(-timeout):v(-verbose)V(-version)");
 if (opts.h || opts.help) return usage(0);
 
 if (opts.V || opts.version) {
     process.stdout.write("qunit " + VERSION + "\n");
     return;
+}
+
+if (opts.r || opts.require) {
+    var packages = opts.r || opts.require;
+    if (!Array.isArray(packages)) packages = [packages];
+    for (var i = 0; i < packages.length; i++) {
+        try { require(packages[i]); }
+        // TODO: should do a better job of finding the required dependency
+        catch (err) { require(process.cwd() + "/node_modules/" + packages[i]); }
+    }
 }
 
 // if output not going to the console, do not colorize

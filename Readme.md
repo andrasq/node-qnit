@@ -34,6 +34,7 @@ Options:
 - `-f PATT, --filter PATT` - run only the tests matching the pattern (TODO: not implemented)
 - `-h, --help` - built in usage
 - `--no-exit` - do not call process.exit() when done, wait for a clean shutdown
+- `-r PACKAGE, --require PACKAGE` - load the package before starting the tests
 - `--stop-on-failure` - do not continue with the test suite if one of the tests fails
 - `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
 - `-v, --verbose` - show more information about the tests run (TODO: not implemented)
