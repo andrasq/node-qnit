@@ -288,8 +288,9 @@ the call behaves like getMock.
 
 ## Todo
 
+- retain the `this` changes from `before` methods (shallow copy)
+- run each test file in a separate context, for isolation (and to shut down any services)
+- add `t.skip()` to document intentionally skipped (not passing, not failed) aka markTestSkipped
+
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
-- add `t.skip()` to document intentionally skipped (not passing, not failed) tests
-- reuse the `this` changes from `before` methods
-- support coffeescript tests (with --require)
