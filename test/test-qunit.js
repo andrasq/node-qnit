@@ -73,6 +73,37 @@ module.exports = {
                 t.done();
             },
         },
+
+        'before special method': {
+            before: function(done) {
+                this.now = Date.now();
+                done();
+            },
+
+            'should run before test (check 1)': function(t) {
+                t.ok(this.now > 1000000);
+                t.ok(Date.now() - this.now < 10);
+                setTimeout(t.done, 20);
+            },
+
+            'should run only once (check 2)': function(t) {
+                t.ok(Date.now() - this.now >= 20);
+                t.done();
+            },
+
+            'should stack with nested before': {
+                before: function(done) {
+                    this.x = 1;
+                    done();
+                },
+
+                'should stack': function(t) {
+                    t.ok(this.now > 1000000);
+                    t.equal(this.x, 1);
+                    t.done();
+                },
+            },
+        },
     },
 
     'should report error if test does not call done': function(t) {
