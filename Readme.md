@@ -224,7 +224,6 @@ if the user had provided their own message.
 #### t.assert( condition, [message] )
 
 assert that the condition is truthy, else fail the test.  Same as `t.ok()`.
-`t.assert()`
 
 #### t.equal( a, b, [message] )
 
