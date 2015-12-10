@@ -1,3 +1,12 @@
+0.8.0
+
+- renamed the package and the executable `qnit`
+- upgrade to the faster aflow-0.10.0
+
+0.7.1
+
+- print error message if stack not available
+
 0.7.0
 
 - fix printed ifError() notice (include err.message)
