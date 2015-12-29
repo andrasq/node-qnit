@@ -32,6 +32,7 @@ module.exports = {
 
                 // nested tests
                 "nested before",
+                "nested before 2",
 
                 // non-nested tests run first
                 "top before each",
@@ -50,6 +51,7 @@ module.exports = {
                 "top before each",
                 "nested before each",
                 "nested 2 before each",
+                "nested 2 before each 2",
                 "nested 2 test 1",
                 "nested 2 after each",
                 "nested after each",
@@ -58,6 +60,7 @@ module.exports = {
                 "top before each",
                 "nested before each",
                 "nested 2 before each",
+                "nested 2 before each 2",
                 "nested 2 test 2",
                 "nested 2 after each",
                 "nested after each",
@@ -71,6 +74,7 @@ module.exports = {
 
                 // end top tests
                 "top after",
+                "top after 2",
             ];
             //console.log("DONE", err, err?err.stack:"", trace.length, expectTrace.length);
             //var printf = require('qprintf').printf;
