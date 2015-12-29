@@ -1,0 +1,9 @@
+- run each top-level file (describe) in a separate process, to kill any servers started
+  (which is what mocha does, why there are procs left hanging sometimes)
+
+- read cmdline options from test/qunit.opts? (like mocha, for eg -t 5000)
+
+- setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
+
+- report eg "var not defined" errors that occur inside tests (as opposed to MongoError: Connection Closed By Application)
+  (also "call stack exceeded", which is what it was I believe)

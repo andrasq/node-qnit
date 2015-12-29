@@ -33,6 +33,18 @@ module.exports = {
                 // nested tests
                 "nested before",
 
+                // non-nested tests run first
+                "top before each",
+                "nested before each",
+                "nested test 1",
+                "nested after each",
+                "top after each",
+                "top before each",
+                "nested before each",
+                "nested test 2",
+                "nested after each",
+                "top after each",
+
                 // sub-nested tests
                 "nested 2 before",
                 "top before each",
@@ -53,17 +65,6 @@ module.exports = {
 
                 // end sub-nested tests
                 "nested 2 after",
-
-                "top before each",
-                "nested before each",
-                "nested test 1",
-                "nested after each",
-                "top after each",
-                "top before each",
-                "nested before each",
-                "nested test 2",
-                "nested after each",
-                "top after each",
 
                 // end nested tests
                 "nested after",

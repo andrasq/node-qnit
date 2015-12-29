@@ -1,3 +1,9 @@
+0.9.0
+
+- support multiple before(), after(), beforeEach() and afterEach() calls in each describe()
+- allow an optional name in any of it, describe, before, after, beforeEach or afterEach
+- fix mocha test error propagation
+
 0.8.0
 
 - renamed the package and the executable `qnit`
