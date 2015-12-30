@@ -24,7 +24,7 @@ function usage(code) {
         "    -C, --no-color",
         "        do not colorize console output",
         "    -f PATT, --filter PATT",
-        "        only run tests containing the string PATT",
+        "        only run tests whose full name contains the string PATT",
         "    --fork-files",
         "        run each test file in a separate process",
         "    -h, --help",

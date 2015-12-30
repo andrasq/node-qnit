@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "qmock": "0.0.8",
-    "qprintf": ">=0.1.4",
+    "qprintf": "0.4.1",
     "aflow": "0.10.0"
   },
   "scripts": {

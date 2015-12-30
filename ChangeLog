@@ -5,6 +5,7 @@
 - fix mocha test error propagation
 - --fork-files option
 - --filter option (sometimes needs --fork-files)
+- upgrade to qprintf-0.4.1 for speedup and improved %f conversion
 
 0.8.0
 
