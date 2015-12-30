@@ -31,16 +31,16 @@ directory.
 Options:
 
 - `-C` - do not colorize console output.  Piped output is never colorized.
-- `-f PATT, --filter PATT` - run only the tests matching the pattern (TODO: not implemented)
+- `-f PATT, --filter PATT` - only run tests whose full name contains the string PATT
+- `--fork-files` - run each test file in a separate process
 - `-h, --help` - built in usage
 - `--no-exit` - do not call process.exit() when done, wait for a clean shutdown
 - `-r PACKAGE, --require PACKAGE` - load the package before starting the tests
-- `--stop-on-failure` - do not continue with the test suite if one of the tests fails
+- `--stop-on-failure, -b, --bail` - do not continue with the test suite if one of the tests fails
 - `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
-- `-v, --verbose` - show more information about the tests run (TODO: not implemented)
 - `-V, --version` - print the qunit version and exit
 
-## Nodeunit Unit Tests
+## Nodeunit Compatibility
 
 Nodeunit runs the test exported via `module.exports`.  The test can be a test
 function or an object containing test functions and/or test objects. Functions
@@ -86,6 +86,7 @@ called in outermost to innermost order, the test function is run, then the
             },
             'test function': function(t) {
                 assert.equal(this.x, 1);
+                assert.equal(this.y, undefined);
                 t.done();
             },
             'nested tests': {
@@ -94,13 +95,13 @@ called in outermost to innermost order, the test function is run, then the
                 },
                 'nested test function': function(t) {
                     assert.equal(this.x, 1);
-                    assert.equal(this.2, 2);
+                    assert.equal(this.y, 2);
                     t.done()
                 },
             },
         };
 
-## Mocha Unit Tests
+## Mocha Compatibility
 
 Mocha installs global functions `describe`, `it`, `before`, `after`,
 `beforeEach` and `afterEach` that build up a test structure very similar to
@@ -287,9 +288,6 @@ the call behaves like getMock.
 
 ## Todo
 
-- run each test file in a separate process, for isolation (and to shut down any services)
 - add `t.skip()` to document intentionally skipped (not passing, not failed) aka markTestSkipped
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
-- allow multiple before/after/beforeEach/AfterEach
-- allow an optional name in before/after/beforeEach/AfterEach

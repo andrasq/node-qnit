@@ -40,7 +40,7 @@ function usage(code) {
         "    -v, --verbose",
         "        TBD: show more info",
         "    -V, --version",
-        "        print the qnit version number and exit",
+        "        print the qnit version and exit",
     ];
     process.stdout.write(lines.join("\n") + "\n");
     process.exit(code);

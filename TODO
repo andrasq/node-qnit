@@ -1,6 +1,3 @@
-- run each top-level file (describe) in a separate process, to kill any servers started
-  (which is what mocha does, why there are procs left hanging sometimes)
-
 - read cmdline options from test/qunit.opts? (like mocha, for eg -t 5000)
 
 - setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
