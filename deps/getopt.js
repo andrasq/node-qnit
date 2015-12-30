@@ -1,5 +1,3 @@
-// https://npmjs.org/package/arlib 0.2.7
-
 /**
  * getopt() -- extract traditional unix command-line arguments
  * Modifies the passed argv array, returns the found options as properties.
@@ -14,7 +12,7 @@
  * Examples:
  *      argsHash = getopt(argv, "x:y::h(-help)");
  *
- * Copyright (C) 2014 Andras Radics
+ * Copyright (C) 2014-2015 Andras Radics
  * Licensed under the Apache License, Version 2.0
  *
  * 2014-09-28 - AR.
@@ -97,8 +95,23 @@ function getopt( argv, options ) {
         // strip the - and -- off the returned options (e.g. -h and --help)
         if (name[0] === '-') name = name.slice(1);
         if (name[0] === '-') name = name.slice(1);
-        // leave single yes/no option boolean, convert repeated yes/no option into count
-        found[name] = (value === true ? (found[name] ? found[name] + 1 : true) : value);
+        if (value === true) {
+            // leave single yes/no option boolean, convert repeated yes/no option into count
+            found[name] = (value === true ? (found[name] ? found[name] + 1 : true) : value);
+        }
+        else {
+            // leave single param flat, convert repeated params into array
+            if (found[name]) {
+                if (!Array.isArray(found[name])) {
+                    found[name] = found[name].length === 1 ? [found[name]] : [[found[name]]];
+                }
+                else if (Array.isArray(value) && !Array.isArray(found[name][0])) {
+                    found[name] = [found[name]];
+                }
+                found[name].push(value);
+            }
+            else found[name] = value;
+        }
     }
 
     found._program = argv[0];
