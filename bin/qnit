@@ -24,7 +24,9 @@ function usage(code) {
         "    -C, --no-color",
         "        do not colorize console output",
         "    -f PATT, --filter PATT",
-        "        TBD: only run tests matching the pattern",
+        "        only run tests containing the string PATT",
+        "    --fork-files",
+        "        run each test file in a separate process",
         "    -h, --help",
         "        this help message",
         "    --no-exit",
@@ -44,7 +46,7 @@ function usage(code) {
     process.exit(code);
 }
 
-var opts = getopt(process.argv, "C(-no-color)f:(-filter):h(-help)(-no-exit)r:(-require):(-stop-on-failure)b(-bail)t:(-timeout):v(-verbose)V(-version)");
+var opts = getopt(process.argv, "C(-no-color)f:(-filter):(-fork-files)h(-help)(-no-exit)r:(-require):(-stop-on-failure)b(-bail)t:(-timeout):v(-verbose)V(-version)");
 if (opts.h || opts.help) return usage(0);
 
 if (opts.V || opts.version) {
@@ -71,6 +73,7 @@ var suiteOptions = {
     stopOnFailure: opts['stop-on-failure'] || opts.b || opts.bail || false,
     verbose: opts.v || opts.verbose || false,
     testTimeout: opts.t || opts.timeout || 2000,
+    forkFiles: opts['fork-files'],
 };
 
 var argv = process.argv.slice(2);

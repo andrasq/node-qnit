@@ -77,8 +77,7 @@ module.exports = {
                 "top after 2",
             ];
             //console.log("DONE", err, err?err.stack:"", trace.length, expectTrace.length);
-            //var printf = require('qprintf').printf;
-            //for (var i=0; i<trace.length; i++) printf("%-3i %s %s\n", trace[i] == expectTrace[i], trace[i], expectTrace[i]);
+            //for (var i=0; i<trace.length; i++) t.printf("%-3i %s %s\n", trace[i] == expectTrace[i], trace[i], expectTrace[i]);
             assert.deepEqual(trace, expectTrace);
         });
 

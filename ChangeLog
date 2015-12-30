@@ -3,6 +3,8 @@
 - support multiple before(), after(), beforeEach() and afterEach() calls in each describe()
 - allow an optional name in any of it, describe, before, after, beforeEach or afterEach
 - fix mocha test error propagation
+- --fork-files option
+- --filter option (sometimes needs --fork-files)
 
 0.8.0
 
