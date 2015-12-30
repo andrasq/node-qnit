@@ -68,6 +68,7 @@ if (opts.r || opts.require) {
 if (!tty.isatty(1)) opts.C = true;
 
 var suiteOptions = {
+    require: opts.r || opts.require,
     noColor: opts.C || opts['no-color'] || false,
     filter: opts.f || opts.filter || false,
     stopOnFailure: opts['stop-on-failure'] || opts.b || opts.bail || false,

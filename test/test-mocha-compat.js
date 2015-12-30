@@ -12,6 +12,8 @@ var qmocha = require('../lib/mocha-compat');
 module.exports = {
     'should parse mocha test': function(t) {
         qmocha.reset();
+        // delete any previous run results, and re-run with empty options
+        delete require.cache[require.resolve('./mocha-test.js')];
         var trace = require('./mocha-test.js');
         var options = {};
         var stats = {
