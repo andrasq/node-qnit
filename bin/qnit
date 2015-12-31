@@ -21,6 +21,13 @@ var parseOptions = require('../lib/parseopt.js');
 var suiteOptions = parseOptions(process.argv, VERSION);
 if (!suiteOptions) return;
 
+if (suiteOptions.config) {
+    var configs = suiteOptions.config;
+    if (Array.isArray(conf)) conf = configs.pop();
+    var conf = parseOptions(fs.readFileSync(suiteOptions.config).toString());
+    for (var k in conf) if (suiteOptions[k] === undefined) suiteOptions[k] = conf[k];
+}
+
 var argv = process.argv.slice(2);
 if (argv.length <= 0) argv = ['test'];
 

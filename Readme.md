@@ -30,15 +30,20 @@ directory.
 
 Options:
 
-- `-C` - do not colorize console output.  Piped output is never colorized.
+- `-C` - do not colorize console output.  Piped or redirected output is never colorized.
+- `--config` - read additional run-time options from the named file
 - `-f PATT, --filter PATT` - only run tests whose full name contains the string PATT
 - `--fork-files` - run each test file in a separate process
-- `-h, --help` - built in usage
+- `-h, --help` - show built in usage
 - `--no-exit` - do not call process.exit() when done, wait for a clean shutdown
+- `--no-recurse` - do not recurse into and run tests in test sub-directories
 - `-r PACKAGE, --require PACKAGE` - load the package before starting the tests
 - `--stop-on-failure, -b, --bail` - do not continue with the test suite if one of the tests fails
 - `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
 - `-V, --version` - print the qunit version and exit
+
+Options can also be specified in a file `qnit.conf` in the test directory
+in whitespace-delimited command-line syntax (newlines are treated as spaces).
 
 ## Nodeunit Compatibility
 
