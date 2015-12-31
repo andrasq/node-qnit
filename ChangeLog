@@ -1,3 +1,10 @@
+0.11.0
+
+- always call the teardown methods, even in case of error
+- `t.skip()`
+- include test and file counts along in summary line
+- include error count in summary line
+
 0.10.0
 
 - read config settings from qnit.conf in the test directory

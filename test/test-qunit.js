@@ -114,6 +114,11 @@ module.exports = {
         t.done();
     },
 
+    'should skip test': function(t) {
+        t.skip();
+        t.fail();
+    },
+
     'assertions': {
         'should throw Error on assertion failure': function(t) {
             t.expect(2);

@@ -189,7 +189,11 @@ assert that the condition is truthy, else fail the test.  Also available as
 #### t.fail( )
 
 Fail the test.  `fail()` is not counted as an assertion, it's an outright
-failure.  Failed tests do not have their tearDown methods called.
+failure.
+
+#### t.skip( )
+
+Skip this test, neither failed nor succeeded.
 
 ### t.printf( format, [arg1], [...] )
 
@@ -293,6 +297,5 @@ the call behaves like getMock.
 
 ## Todo
 
-- add `t.skip()` to document intentionally skipped (not passing, not failed) aka markTestSkipped
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
