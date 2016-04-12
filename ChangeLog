@@ -1,3 +1,7 @@
+0.12.0  2016-04-12
+
+- -s --slow command-line option for cleaner test run diffs
+
 0.11.0
 
 - always call the teardown methods, even in case of error

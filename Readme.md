@@ -39,6 +39,7 @@ Options:
 - `--no-recurse` - do not recurse into and run tests in test sub-directories
 - `-r PACKAGE, --require PACKAGE` - load the package before starting the tests
 - `--stop-on-failure, -b, --bail` - do not continue with the test suite if one of the tests fails
+- `-s MS, --slow MS` - ms elapsed test time before reporting duration (default 0, all tests)
 - `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
 - `-V, --version` - print the qunit version and exit
 

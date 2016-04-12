@@ -1,6 +1,6 @@
 {
   "name": "qnit",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
   "description": "simple unit test runner, similar to nodeunit and mocha (formerly node-qunit)",
