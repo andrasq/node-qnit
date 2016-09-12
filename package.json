@@ -7,7 +7,7 @@
   "author": "Andras",
   "license": "Apache-2.0",
   "repository": {
-    "url": "git://github.com/andrasq/qnit",
+    "url": "git://github.com/andrasq/node-qunit",
     "type": "git"
   },
   "keywords": [
