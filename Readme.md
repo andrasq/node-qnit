@@ -1,5 +1,5 @@
-node-qunit
-==========
+qnit
+====
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
@@ -8,8 +8,8 @@ simple little unit test runner, in the spirit of nodeunit and phpunit
 
 Nodeunit-like command-line usage:
 
-        npm install -g qunit
-        qunit [testdir|testfile] [...]
+        npm install -g qnit
+        qnit [testdir|testfile] [...]
 
 where testdir/testfile.js contains for example:
 
@@ -23,7 +23,7 @@ where testdir/testfile.js contains for example:
 
 ## Command Line
 
-`qunit [options] [file] [file2 ...]`
+`qnit [options] [file] [file2 ...]`
 
 Runs the unit tests in the specified files, or all tests in the `./test`
 directory.
@@ -220,7 +220,7 @@ Examples
 
 The assertions from the [`assert`](http://nodejs.org/api/assert.html) module
 are available as `tester` methods.  If the assertion fails, an exception is
-thrown that qunit catches and reports as a failed unit test.  The rest of that
+thrown that qnit catches and reports as a failed unit test.  The rest of that
 test function is omitted, and the next test is run (unless --stop-on-failue
 was specified on the command line).  Tests that fail an assertion will
 immediately stop, will not run any more assertions, and will not have their
@@ -228,7 +228,7 @@ immediately stop, will not run any more assertions, and will not have their
 
 All assertions accept an optional message.  If provided, the message will be
 included in the assertion diagnostics.  It can be helpful to explain what
-failed.  Note that qunit includes both the `assert` failure message and the
+failed.  Note that qnit includes both the `assert` failure message and the
 user-provided message; `assert` omits its diagnostic showing the failed values
 if the user had provided their own message.
 
@@ -295,6 +295,13 @@ double will be instanceof the constructor and will inherit the same methods
 as a new instance.  If constructor is an object (not a constructor function),
 the call behaves like getMock.
 
+
+## Related
+
+- [nodeunit](http://npmjs.com/package/nodeunit) - phpunit-like unit tests
+- [mocha](http://npmjs.com/package/mocha)
+- [nyc](http://npmjs.com/package/nyc) - command-line coverage analyzer, works well with qnit
+        
 
 ## Todo
 

@@ -1,13 +1,13 @@
 {
   "name": "qnit",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
   "description": "simple unit test runner, similar to nodeunit and mocha (formerly node-qunit)",
   "author": "Andras",
   "license": "Apache-2.0",
   "repository": {
-    "url": "git://github.com/andrasq/node-qunit",
+    "url": "git://github.com/andrasq/qnit",
     "type": "git"
   },
   "keywords": [
@@ -15,12 +15,10 @@
   ],
   "dependencies": {
     "qmock": "0.0.8",
-    "qprintf": "0.4.1",
+    "qprintf": "0.8.1",
     "aflow": "0.10.0"
   },
   "scripts": {
     "test": "bin/qnit test"
-  },
-  "devDependencies": {
   }
 }
