@@ -3,7 +3,6 @@ qnit
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
-
 ## Summary
 
 Nodeunit-like command-line usage:
@@ -41,7 +40,7 @@ Options:
 - `--stop-on-failure, -b, --bail` - do not continue with the test suite if one of the tests fails
 - `-s MS, --slow MS` - ms elapsed test time before reporting duration (default 0, all tests)
 - `-t MS, --timeout MS` - ms idle timeout to wait for a test to call done() (default 2000)
-- `-V, --version` - print the qunit version and exit
+- `-V, --version` - print the qnit version and exit
 
 Options can also be specified in a file `qnit.conf` in the test directory
 in whitespace-delimited command-line syntax (newlines are treated as spaces).
@@ -70,8 +69,8 @@ test calls done().
 Note: unlike Mocha, Nodeunit runs every enclosing setUp method for each test
 run, it does not distinguish top-level global initialization from test-specific
 local initialization.  Using Mocha terminology, `setUp` and `tearDown`
-correspond to `beforeEach` and `afterEach`; Nodeunit does not have a `before`
-or an `after` equivalent.
+correspond to `beforeEach` and `afterEach`.  Qnit supports both `before`
+and `beforeEach` as well as `setUp`.
 
 Each test function when it runs invokes all setUp and tearDown calls from all
 enclosing objects.  `setUp` and `tearDown` functions are paired and nest
@@ -262,6 +261,17 @@ strict equality test, `a === b`
 
 strict inequality test, `a !== b`
 
+### t.contains( a, b )
+
+coercive test that a contains b as substring (strings), array element (array and
+non-array), subarray (arrays) or object key-value subset (objects).  If not
+arrays, objects or strings, a and b will be compared directly.
+
+### t.strictContains( a, b )
+
+inclusion test as above but with elements compared pairwise with
+strict-equals ===.
+
 #### t.throws( block, [error], [message] )
 
 confirm that the block throws the specified error.  Error can be an Error
@@ -307,3 +317,4 @@ the call behaves like getMock.
 
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
+- `--cov` code coverage reporting using `istanbul`, `blanket`, `coveralls`, `burrito` or some such 

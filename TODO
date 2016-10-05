@@ -4,3 +4,6 @@
 
 - report eg "var not defined" errors that occur inside tests (as opposed to MongoError: Connection Closed By Application)
   (also "call stack exceeded", which is what it was I believe)
+
+- mocha runs each inner `describe` clause with its own copy of the surrounding scope ?!
+

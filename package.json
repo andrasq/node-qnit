@@ -1,6 +1,6 @@
 {
   "name": "qnit",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
   "description": "simple unit test runner, similar to nodeunit and mocha (formerly node-qunit)",
@@ -14,11 +14,12 @@
     "unit", "test", "unit test", "nodeunit", "mocha", "tdd", "Andras"
   ],
   "dependencies": {
+    "qassert": "1.1.0",
     "qmock": "0.0.8",
     "qprintf": "0.8.1",
     "aflow": "0.10.0"
   },
   "scripts": {
-    "test": "bin/qnit test"
+    "test": "bin/qnit test/test-*"
   }
 }
