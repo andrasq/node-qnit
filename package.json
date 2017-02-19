@@ -14,10 +14,10 @@
     "unit", "test", "unit test", "nodeunit", "mocha", "tdd", "Andras"
   ],
   "dependencies": {
+    "aflow": "0.10.0",
     "qassert": "1.1.2",
     "qmock": "0.0.8",
-    "qprintf": "0.8.1",
-    "aflow": "0.10.0"
+    "qprintf": "0.8.1"
   },
   "scripts": {
     "test": "bin/qnit test/test-*"
