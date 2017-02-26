@@ -288,7 +288,8 @@ fail the test if the error is set
 ### Tester Mocks
 
 QUnit supports mock test doubles using the
-[QMock](https://npmjs.org/package/qmock) library.  Refer to qmock for details.
+[QMock](https://npmjs.org/package/qmock) library.  Refer to
+[qmock](https://npmjs.org/package/qmock) for details.
 
 #### t.getMock( object, [methodsToMock], [constructorArgs] )
 
@@ -305,9 +306,55 @@ double will be instanceof the constructor and will inherit the same methods
 as a new instance.  If constructor is an object (not a constructor function),
 the call behaves like getMock.
 
+#### t.stub( object, methodName [,overrideFunc] )
+#### t.spy( object, methodName [,overrideFunc] )
+
+Instrument calls to the named method.  If overrideFunc is specified, also replace
+the method with the override.  Returns a `stub` object that holds the gathered
+stats.  Restore the original method back onto the object with `stub.restore()`.
+
+`Stub` instruments and overrides; `spy` tracks details about the first 10 calls made.
+
+For details, see [qmock](http://npmjs.com/package/qmock).
+
+#### t.spy( [func] )
+
+Return an instrumented copy of the function.  If no func is specified, creates an
+anonymous function.  The call stats accessible as func.stub.  For details, see
+[qmock](http://npmjs.com/package/qmock).
+
+#### t.mockTimers( )
+#### t.unmockTimers( )
+
+Replace the system timers functions `setImmediate`, `setTimeout` etc with mock
+doubles where elapsed time is controlled by the test.  Use `unmockTimers()` to
+restore the original system timers.
+
+Returns a `clock` object with a method `clock.tick` that advances time:
+
+- `clock.tick(0)` - advance to the next event loop, run any pending immediate tasks
+- `clock.tick()` - advance time by 1 millisecond, run immediates and any timeouts
+- `clock.tick(N)` - advance time by N milliseconds, run immediates and any timeouts
+  that come due at any point during the "elapsed" time, including those queued by
+  other immediates or timeouts.
+
+For details, see [qmock](http://npmjs.com/package/qmock).
+
+#### t.mockHttp( handler(req, res) )
+#### t.unmockHttp( )
+
+Replace `http.request` and `https.request` with calls to the handler.  The handler
+is responsible for emulating the expected behavior.  The `req` and `res` passed to
+`handler` are instances of `http.ClientRequest` used to make an http request to the
+server and `http.IncomingMessage` that the client receives with the server response.
+
+As of qnit 0.14.0, this feature is experimental.
+
+For details, see [qmock](http://npmjs.com/package/qmock).
 
 ## Related
 
+- [qmock](http://npmjs.com/package/qmock) - qmock library built into qnit
 - [nodeunit](http://npmjs.com/package/nodeunit) - phpunit-like unit tests
 - [mocha](http://npmjs.com/package/mocha)
 - [nyc](http://npmjs.com/package/nyc) - command-line coverage analyzer, works well with qnit

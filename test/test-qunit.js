@@ -6,6 +6,7 @@
 // run this test with qunit itself
 
 var assert = require('assert');
+var qmock = require('qmock');
 
 var sharedState;
 
@@ -143,10 +144,19 @@ module.exports = {
         },
     },
 
-    'QMock': {
-        'should expose QMock methods': function(t) {
+    'qmock': {
+        'should expose qmock methods': function(t) {
             t.ok(typeof t.getMock === 'function');
             t.ok(typeof t.getMockSkipConstructor === 'function');
+            var expectedMethods = [
+                'stub', 'spy', 'mockTimers', 'unmockTimers', 'mockHttp', 'unmockHttp',
+            ];
+            for (var i=0; i<expectedMethods.length; i++) {
+                var method = expectedMethods[i];
+                t.equal(typeof t[method], 'function');
+                t.equal(t[method].name, method);
+                t.equal(t[method], qmock[method]);
+            }
             t.done();
         },
     },
