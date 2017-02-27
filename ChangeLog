@@ -1,3 +1,6 @@
+0.14.1 2017-02-26
+- upgrade to qmock 0.3.1 for mockHttp experimental code fixes
+
 0.14.0 2017-02-25
 - qmock 0.3.0 for stub, spy, mockTimers, mockHttp
 
