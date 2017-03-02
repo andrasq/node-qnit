@@ -97,6 +97,7 @@ called in outermost to innermost order, the test function is run, then the
             'nested tests': {
                 setUp: function(done) {
                     this.y = 2;
+                    done();
                 },
                 'nested test function': function(t) {
                     assert.equal(this.x, 1);
