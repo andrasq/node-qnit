@@ -3,21 +3,22 @@ qnit
 
 simple little unit test runner, in the spirit of nodeunit and phpunit
 
+
 ## Summary
 
 Nodeunit-like command-line usage:
 
-        npm install -g qnit
-        qnit [testdir|testfile] [...]
+    npm install -g qnit
+    qnit [testdir|testfile] [...]
 
 where testdir/testfile.js contains for example:
 
-        module.exports = {
-            'should run test': function(t) {
-                t.printf("running test!\n");
-                t.done();
-            },
-        };
+    module.exports = {
+        'should run test': function(t) {
+            t.printf("running test!\n");
+            t.done();
+        },
+    };
 
 
 ## Command Line
@@ -80,31 +81,33 @@ called in outermost to innermost order, the test function is run, then the
 
 ### Example
 
-        module.exports = {
+    var assert = require('assert');
+    module.exports = {
+        setUp: function(done) {
+            this.x = 1;
+            done();
+        },
+        tearDown: function(done) {
+            this.x = null;
+            done();
+        },
+        'test function': function(t) {
+            assert.equal(this.x, 1);
+            assert.equal(this.y, undefined);
+            t.done();
+        },
+        'nested tests': {
             setUp: function(done) {
-                this.x = 1;
+                this.y = 2;
                 done();
             },
-            tearDown: function(done) {
-                this.x = null;
-                done();
-            },
-            'test function': function(t) {
+            'nested test function': function(t) {
                 assert.equal(this.x, 1);
-                assert.equal(this.y, undefined);
-                t.done();
+                assert.equal(this.y, 2);
+                t.done()
             },
-            'nested tests': {
-                setUp: function(done) {
-                    this.y = 2;
-                },
-                'nested test function': function(t) {
-                    assert.equal(this.x, 1);
-                    assert.equal(this.y, 2);
-                    t.done()
-                },
-            },
-        };
+        },
+    };
 
 ## Mocha Compatibility
 
@@ -131,42 +134,43 @@ properly scoped.
 
 Example:
 
-        describe(function() {
-            var x;
+    var assert = require('assert');
+    describe(function() {
+        var x;
+        beforeEach(function(done) {
+            x = 1;
+            done();
+        });
+        afterEach(function(done) {
+            x = null;
+            done();
+        });
+        it('test function', function(done) {
+            assert.equal(x , 1);
+            done();
+        });
+        describe('nested tests', function() {
+            var y;
             beforeEach(function(done) {
-                x = 1;
+                y = 2;
                 done();
             });
-            afterEach(function(done) {
-                x = null;
+            it('nested test function', function(done) {
+                assert.equal(x, 1);
+                assert.equal(y, 2);
                 done();
             });
-            it('test function', function(done) {
-                assert.equal(x , 1);
-                done();
-            });
-            describe('nested tests', function() {
-                var y;
-                beforeEach(function(done) {
-                    y = 2;
-                    done();
-                });
-                it('nested test function', function(done) {
-                    assert.equal(x, 1);
-                    assert.equal(y, 2);
-                    done();
-                });
-            });
-
+        });
+    });
 
 ## Tester Methods
 
 The tester object passed in to the unit test functions has a number of useful
 methods, the most important of which is `done`.
 
-        myTest: function(t) {
-            t.done();
-        }
+    myTest: function(t) {
+        t.done();
+    }
 
 ### t.done( )
 
@@ -210,10 +214,10 @@ printf supports the core set of conversions plus %O for objects.  See the
 
 Examples
 
-        ("%5d", 123)            => "  123"
-        ("0x%04x", 123)         => "0x007b"
-        ("%10s", "Hello")       => "     Hello"
-        ("%-10s", "Hello")      => "Hello     "
+    ("%5d", 123)            => "  123"
+    ("0x%04x", 123)         => "0x007b"
+    ("%10s", "Hello")       => "     Hello"
+    ("%-10s", "Hello")      => "Hello     "
 
 ### Tester Assertions
 
@@ -358,7 +362,6 @@ For details, see [qmock](http://npmjs.com/package/qmock).
 - [nodeunit](http://npmjs.com/package/nodeunit) - phpunit-like unit tests
 - [mocha](http://npmjs.com/package/mocha)
 - [nyc](http://npmjs.com/package/nyc) - command-line coverage analyzer, works well with qnit
-        
 
 ## Todo
 
