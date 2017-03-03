@@ -358,10 +358,12 @@ For details, see [qmock](http://npmjs.com/package/qmock).
 
 ## Related
 
-- [qmock](http://npmjs.com/package/qmock) - qmock library built into qnit
-- [nodeunit](http://npmjs.com/package/nodeunit) - phpunit-like unit tests
 - [mocha](http://npmjs.com/package/mocha)
+- [nodeunit](http://npmjs.com/package/nodeunit) - phpunit-like unit tests
 - [nyc](http://npmjs.com/package/nyc) - command-line coverage analyzer, works well with qnit
+- [qassert](http://npmjs.com/package/qassert) - `assert` library wrapper built into qnit
+- [qmock](http://npmjs.com/package/qmock) - qmock library built into qnit
+- [qprintf](http://npmjs.com/package/qprintf) - printf library built into qnit
 
 ## Todo
 
