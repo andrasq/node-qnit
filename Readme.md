@@ -265,16 +265,16 @@ strict equality test, `a === b`
 
 strict inequality test, `a !== b`
 
-### t.contains( a, b )
+#### t.contains( a, b )
 
 coercive test that a contains b as substring (strings), array element (array and
 non-array), subarray (arrays) or object key-value subset (objects).  If not
 arrays, objects or strings, a and b will be compared directly.
 
-### t.strictContains( a, b )
+#### t.strictContains( a, b )
 
 inclusion test as above but with elements compared pairwise with
-strict-equals ===.
+strict-equals `===`.
 
 #### t.throws( block, [error], [message] )
 
