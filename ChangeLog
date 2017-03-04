@@ -1,3 +1,9 @@
+0.14.3
+- upgrade to the faster latest qprintf
+
+0.14.2 2017-03-02
+- fix sample scripts in readme so they run
+
 0.14.1 2017-02-26
 - upgrade to qmock 0.3.1 for mockHttp experimental code fixes
 
