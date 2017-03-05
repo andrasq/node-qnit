@@ -13,7 +13,7 @@ var VERSION = package.version;
 
 var fs = require('fs');
 var tty = require('tty');
-var getopt = require('../deps/getopt').getopt;
+var getopt = require('qgetopt');
 var qunit = require('../lib/qunit.js');
 var parseOptions = require('../lib/parseopt.js');
 
