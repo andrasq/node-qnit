@@ -21,6 +21,8 @@
     "qprintf": "0.9.2"
   },
   "scripts": {
+    "coverage": "nyc --version && nyc --reporter text --reporter lcov bin/qnit test* || echo nyc not installed, cannot test coverage",
+    "clean": "rm -rf .nyc_output coverage",
     "test": "bin/qnit test/test-*"
   }
 }
