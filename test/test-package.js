@@ -9,4 +9,12 @@ module.exports = {
         require('../package.json');
         t.done();
     },
+
+    'should export qmock, qassert, qprintf': function(t) {
+        var qnit = require('../');
+        t.equal(qnit.qassert, require('qassert'));
+        t.equal(qnit.qmock, require('qmock'));
+        t.equal(qnit.qprintf, require('qprintf'));
+        t.done();
+    },
 };
