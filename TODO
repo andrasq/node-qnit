@@ -7,3 +7,6 @@
 
 - mocha runs each inner `describe` clause with its own copy of the surrounding scope ?!
 
+- mocha "done" callback is optional, and is only called if provided
+
+- make require('qnit') work from inside a unit test file, to access eg qnit.qmock from mocha-style tests
