@@ -1,6 +1,7 @@
 0.14.5
 - upgrade to qmock 0.3.1 for mockHttpServer bugfixes (experimental)
 - expose `qmock`, `qassert` and `qprintf` as properties on `qnit`
+- rename ChangeLog to ChangeLog.md to apply formatting
 
 0.14.4
 - use qgetopt from the package, not deps
