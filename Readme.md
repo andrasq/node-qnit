@@ -222,6 +222,7 @@ Examples
 ### Tester Assertions
 
 The assertions from the [`assert`](http://nodejs.org/api/assert.html) module
+(and the enhancements from [`qassert`](https://npmjs.org/package/qassert))
 are available as `tester` methods.  If the assertion fails, an exception is
 thrown that qnit catches and reports as a failed unit test.  The rest of that
 test function is omitted, and the next test is run (unless --stop-on-failue
@@ -292,7 +293,7 @@ fail the test if the error is set
 ### Tester Mocks
 
 QUnit supports mock test doubles using the
-[QMock](https://npmjs.org/package/qmock) library.  Refer to
+[qmock](https://npmjs.org/package/qmock) library.  Refer to
 [qmock](https://npmjs.org/package/qmock) for details.
 
 #### t.getMock( object, [methodsToMock], [constructorArgs] )
