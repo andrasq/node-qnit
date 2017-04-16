@@ -1,3 +1,8 @@
+0.15.0
+- upgrade to qmock 0.5.0 for `stubOnce()` / `spyOnce()`
+- breaking change: `stub()` stubs with a noop function if no replacement method
+  is specified, instead of spying.  This fixes `stub` to work more intuitively.
+
 0.14.5
 - upgrade to qmock 0.3.1 for mockHttpServer bugfixes (experimental)
 - expose `qmock`, `qassert` and `qprintf` as properties on `qnit`
