@@ -1,3 +1,6 @@
+0.15.1
+- fix exitcode on failure
+
 0.15.0
 - upgrade to qmock 0.5.0 for `stubOnce()` / `spyOnce()`
 - breaking change: `stub()` stubs with a noop function if no replacement method
