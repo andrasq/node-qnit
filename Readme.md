@@ -370,4 +370,4 @@ For details, see [qmock](http://npmjs.com/package/qmock).
 
 - bundle up errors and output all at the end (instead of interleaving)
 - gather result rows into json and output with a json-to-text reporter module
-- `--cov` code coverage reporting using `istanbul`, `blanket`, `coveralls`, `burrito` or some such 
+- `--cov` code coverage reporting using `istanbul`, `nyc` or some such
