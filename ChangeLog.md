@@ -1,3 +1,9 @@
+0.15.3
+- upgrade to `qmock` 0.5.5 for older node version fixes
+
+0.15.2
+- upgrade to `qassert` 1.2.0 for working `contains()`
+
 0.15.1
 - fix exitcode on failure
 
