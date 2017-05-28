@@ -1,3 +1,8 @@
+0.16.0
+- upgrade to `qmock` 0.6.1 for more functional mockHttp() fixes
+- rename internal files to `qnit`
+- remove references to `qunit`
+
 0.15.3
 - upgrade to `qmock` 0.5.5 for older node version fixes
 

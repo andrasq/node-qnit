@@ -1,7 +1,7 @@
 {
   "name": "qnit",
-  "version": "0.15.3",
   "description": "unit test runner, somewhat compatible with nodeunit and mocha",
+  "version": "0.16.0",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
   "author": "Andras",
@@ -17,12 +17,12 @@
     "aflow": "0.10.0",
     "qassert": "1.2.0",
     "qgetopt": "1.0.1",
-    "qmock": "0.5.5",
+    "qmock": "0.6.1",
     "qprintf": "0.9.2"
   },
   "scripts": {
-    "coverage": "nyc --version && nyc --reporter text --reporter lcov bin/qnit test* || echo nyc not installed, cannot test coverage",
-    "clean": "rm -rf .nyc_output coverage",
-    "test": "bin/qnit test/test-*"
+    "test": "bin/qnit test/test-*",
+    "coverage": "nyc --reporter text --reporter lcov bin/qnit test*",
+    "clean": "rm -rf .nyc_output coverage"
   }
 }
