@@ -6,7 +6,7 @@
 'use strict';
 
 var assert = require('assert');
-var qunit = require('../index');
+var qnit = require('../index');
 var qmocha = require('../lib/mocha-compat');
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
             fileCount: 0,
             errors: new Array(),
         };
-        qunit.runTest(qmocha.getHierarchy(), "", options, [], [], stats, function(err) {
+        qnit.runTest(qmocha.getHierarchy(), "", options, [], [], stats, function(err) {
             var expectTrace = [
                 // top level
                 "top before",

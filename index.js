@@ -1,2 +1,1 @@
-module.exports = require('./lib/qunit.js');
-require('./lib/mocha-compat');
+module.exports = require('./lib/qnit.js');

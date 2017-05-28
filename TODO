@@ -1,4 +1,4 @@
-- read cmdline options from test/qunit.opts? (like mocha, for eg -t 5000)
+- read cmdline options from test/qnit.opts? (like mocha, for eg -t 5000)
 
 - setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
 

@@ -6,7 +6,7 @@
 'use strict';
 
 var assert = require('assert');
-var qunit = require('../index');
+var qnit = require('../index');
 var qmocha = require('../lib/mocha-compat');
 
 var trace = [];
@@ -14,7 +14,7 @@ module.exports = trace;
 
 describe('describe suite', function() {
 
-    var printf = qunit.QUnit.prototype.printf;
+    var printf = qnit.QUnit.prototype.printf;
 
     before(function before(done) { trace.push("top before"); done(); });
     after(function after(done) { trace.push("top after"); done(); });

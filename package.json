@@ -1,13 +1,13 @@
 {
   "name": "qnit",
   "version": "0.15.3",
+  "description": "unit test runner, somewhat compatible with nodeunit and mocha",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
-  "description": "simple unit test runner, similar to nodeunit and mocha (formerly node-qunit)",
   "author": "Andras",
   "license": "Apache-2.0",
   "repository": {
-    "url": "git://github.com/andrasq/node-qunit",
+    "url": "git://github.com/andrasq/node-qnit",
     "type": "git"
   },
   "keywords": [

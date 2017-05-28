@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0
  */
 
-// run this test with qunit itself
+// run this test with qnit itself
 
 var assert = require('assert');
 var qmock = require('qmock');

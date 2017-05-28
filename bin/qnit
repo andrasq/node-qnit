@@ -14,7 +14,7 @@ var VERSION = package.version;
 var fs = require('fs');
 var tty = require('tty');
 var getopt = require('qgetopt');
-var qunit = require('../lib/qunit.js');
+var qnit = require('../lib/qnit.js');
 var parseOptions = require('../lib/parseopt.js');
 
 
@@ -31,6 +31,6 @@ if (suiteOptions.config) {
 var argv = process.argv.slice(2);
 if (argv.length <= 0) argv = ['test'];
 
-var runner = qunit.runSuite(argv, suiteOptions, function(err) {
+var runner = qnit.runSuite(argv, suiteOptions, function(err) {
     if (!suiteOptions.noExit) process.exit(err ? 2 : 0);
 });
