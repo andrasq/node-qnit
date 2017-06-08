@@ -1,7 +1,7 @@
 qnit
 ====
 
-simple little unit test runner, in the spirit of nodeunit and phpunit
+simple unit test runner, in the spirit of nodeunit and phpunit
 
 
 ## Summary

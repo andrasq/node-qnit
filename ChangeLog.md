@@ -1,3 +1,9 @@
+0.16.2
+- upgrade to `qmock` 0.6.3 for getMock fixes
+
+0.16.1
+- upgrade to `qmock` 0.6.2 for stubOnce, spyOnce
+
 0.16.0
 - upgrade to `qmock` 0.6.1 for more functional mockHttp() fixes
 - rename internal files to `qnit`
