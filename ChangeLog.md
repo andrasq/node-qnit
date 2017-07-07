@@ -1,3 +1,6 @@
+0.17.0
+- upgrade to `qassert` 1.3.0 for inorder
+
 0.16.2
 - upgrade to `qmock` 0.6.3 for getMock fixes
 

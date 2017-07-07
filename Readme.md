@@ -266,16 +266,25 @@ strict equality test, `a === b`
 
 strict inequality test, `a !== b`
 
-#### t.contains( a, b )
+#### t.contains( a, b, [message] )
 
 coercive test that a contains b as substring (strings), array element (array and
 non-array), subarray (arrays) or object key-value subset (objects).  If not
 arrays, objects or strings, a and b will be compared directly.
 
-#### t.strictContains( a, b )
+#### t.strictContains( a, b, [message] )
 
 inclusion test as above but with elements compared pairwise with
 strict-equals `===`.
+
+#### t.within( a, b, distance, [message] )
+
+test that the number `a` is within +/- `distance` of `b`
+
+#### t.inorder (arr, [compar,] [message] )
+
+test that the elements of the array are in ascending order, as determined by the
+comparison function.  The default comparison test is `(a,b) => a > b ? 1 : 0`.
 
 #### t.throws( block, [error], [message] )
 
