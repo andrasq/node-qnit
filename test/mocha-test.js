@@ -19,7 +19,7 @@ describe('describe suite', function() {
     before(function before(done) { trace.push("top before"); done(); });
     after(function after(done) { trace.push("top after"); done(); });
     after(function after(done) { trace.push("top after 2"); done(); });
-    beforeEach(function beforeEach(done) { trace.push("top before each"); done(); });
+    beforeEach(function beforeEach() { trace.push("top before each"); });
     afterEach(function afterEach(done) { trace.push("top after each"); done(); });
 
     it('test 1', function test1(done) { trace.push("test 1"); done(); });
