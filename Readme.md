@@ -277,6 +277,14 @@ arrays, objects or strings, a and b will be compared directly.
 inclusion test as above but with elements compared pairwise with
 strict-equals `===`.
 
+#### t.notContains( a, b, [message] )
+
+like `contains` but with the sense reversed, the test fails if a contains b
+
+#### t.notStrictContains(a, b, [message] )
+
+like `strictContains` but with the sense reversed, the test fails if a strictContains b
+
 #### t.within( a, b, distance, [message] )
 
 test that the number `a` is within +/- `distance` of `b`

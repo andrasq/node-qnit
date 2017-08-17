@@ -9,3 +9,6 @@
 
 - mocha compat: it.only to run only that test (ie, only those tagged "only")
 - mocha compat: this.timeout() to control per-test timeout
+
+- fixme: if test is ^Z suspended for more than 2000 (-t) milliseconds, the "did not call done" error is printed
+  but the test is still run to completion, instead of being aborted

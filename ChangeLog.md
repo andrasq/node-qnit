@@ -1,3 +1,6 @@
+0.18.0
+- upgrade to qassert 1.4.0 for notContains, notStrictContains
+
 0.17.1
 - make the callback optional in before, beforeEach, after, afterEach (mocha compat)
 - upgrade to qmock 0.6.4 for improved mockHttp server
