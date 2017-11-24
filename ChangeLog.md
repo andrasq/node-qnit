@@ -1,3 +1,9 @@
+0.18.2
+- upgrade to qmock 0.6.6 to allow mockTimers to clear null timers
+
+0.18.1
+- upgrade to qmock-0.6.5 and qgetopt-1.0.2
+
 0.18.0
 - upgrade to qassert 1.4.0 for notContains, notStrictContains
 
