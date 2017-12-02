@@ -131,6 +131,7 @@ module.exports = {
             t.expect(3);
             try { t.equal(1, 2, "expect to fail"); }
             catch (err) {
+                // TODO: node-v0.8 qassert fails, "cannot read property 'length' of null" in annotateError
                 t.ok(err.message.indexOf('1 == 2') >= 0);
                 t.ok(err.message.indexOf('expect to fail') >= 0);
                 t.done();
@@ -142,6 +143,8 @@ module.exports = {
             try { t.equal(1, 2); t.fail("nope"); }
             catch (err) { t.ok(true); t.done(); }
         },
+
+        // TODO: check/fix that throws() fails if a different error is thrown
     },
 
     'qmock': {
@@ -159,5 +162,25 @@ module.exports = {
             }
             t.done();
         },
+
+        'should restore stubs before next test': {
+            before: function(done) {
+                this.method = function(cb){ cb() };
+                this.instance = { method: this.method };
+                done();
+            },
+
+            'part 1: stub instance.method': function(t) {
+                t.stubOnce(this.instance, 'method', function(cb){ cb() });
+                this.instance.method(function() {
+                    t.done();
+                })
+            },
+
+            'part 2: verify that intance.method has been restored': function(t) {
+                t.equal(this.instance.method, this.method);
+                t.done();
+            },
+        }
     },
 };

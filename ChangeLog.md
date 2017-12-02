@@ -1,3 +1,9 @@
+0.18.3
+- run each text on the next setImmediate event tick, to return back to the function
+  that called `t.done()` and allow it to clean up before the next test runs.
+  Affects eg `t.stubOnce` when the t.done() is called from inside the stub.
+- throw a fatal Exception on teardown errors, like on setup errors
+
 0.18.2
 - upgrade to qmock 0.6.6 to allow mockTimers to clear null timers
 
