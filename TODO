@@ -12,5 +12,3 @@
 
 - fixme: if test is ^Z suspended for more than 2000 (-t) milliseconds, the "did not call done" error is printed
   but the test is still run to completion, instead of being aborted
-
-- fixme: throws(fn, msg) does not test that the err.message contains msg, it passes with any message

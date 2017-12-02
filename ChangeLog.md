@@ -1,3 +1,7 @@
+0.18.4
+- upgrade to qassert 1.5.0 for multiple bugfixes
+- be more careful when tester inherits qassert methods
+
 0.18.3
 - run each text on the next setImmediate event tick, to return back to the function
   that called `t.done()` and allow it to clean up before the next test runs.
