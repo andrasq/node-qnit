@@ -1,11 +1,11 @@
-0.18.4
+0.19.0
 - upgrade to qassert 1.5.0 for multiple `qassert` fixes:
   - fix `assertionCount` to increment on every test type
   - fix `qassert` function to have the same parent object as the other tests
   - fix occasional clipping of last char of error message
   - fix error diagnostic annotation
   - throw the actual failure `Error`
-- be more careful when tester inherits qassert methods
+- check for name conflicts when tester inherits qassert methods
 
 0.18.3
 - run each text on the next setImmediate event tick, to return back to the function
