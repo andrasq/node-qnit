@@ -131,7 +131,7 @@ module.exports = {
             t.expect(3);
             try { t.equal(1, 2, "expect to fail"); }
             catch (err) {
-                // TODO: node-v0.8 qassert fails, "cannot read property 'length' of null" in annotateError
+                // TODO: node-v0.8 does not always include a message in the assertion Error, so 1 == 2 will fail
                 t.ok(err.message.indexOf('1 == 2') >= 0);
                 t.ok(err.message.indexOf('expect to fail') >= 0);
                 t.done();
