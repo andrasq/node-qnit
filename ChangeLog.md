@@ -1,3 +1,7 @@
+0.19.1
+- do not stop the test on timeout or setUp errors
+- return non-zero exitcode on timeout error
+
 0.19.0
 - upgrade to qassert 1.5.0 for multiple `qassert` fixes:
   - fix `assertionCount` to increment on every test type
