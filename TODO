@@ -13,5 +13,8 @@
 - fixme: if test is ^Z suspended for more than 2000 (-t) milliseconds, the "did not call done" error is printed
   but the test is still run to completion, instead of being aborted
 
+- mocha does not run calls below the `done()` (coculd run test in a try/catch, and throw a '__done__' flag)
+- sinon compat: the returned spy is the annotated spying function, same for stub and spy (ie no spy/stub dichotomy)
+
 - fixme: node-v6 broke --fork-files
 - fixme: ifError() does not print the backtrace
