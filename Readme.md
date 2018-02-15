@@ -363,6 +363,7 @@ Returns a `clock` object with a method `clock.tick` that advances time:
 For details, see [qmock](http://npmjs.com/package/qmock).
 
 #### t.mockHttp( handler(req, res) )
+#### t.mockHttp( )
 #### t.unmockHttp( )
 
 Replace `http.request` and `https.request` with calls to the handler.  The handler
@@ -372,7 +373,7 @@ server and `http.IncomingMessage` that the client receives with the server respo
 
 As of qnit 0.14.0, this feature is experimental.
 
-For details, see [qmock](http://npmjs.com/package/qmock).
+For more details, see [qmock](http://npmjs.com/package/qmock).
 
 ## Related
 

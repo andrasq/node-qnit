@@ -1,3 +1,8 @@
+0.20.0
+- upgrade to qmock 0.8.0 for mockHttpServer `.on`, `.once` and `.default`.
+  Also changes the way urls are assembled from uri components, now using `path`
+  not `pathname`, which fixes nodejs compatibility.
+
 0.19.1
 - do not stop the test on timeout or setUp errors
 - return non-zero exitcode on timeout error
