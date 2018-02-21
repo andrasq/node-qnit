@@ -362,6 +362,17 @@ Returns a `clock` object with a method `clock.tick` that advances time:
 
 For details, see [qmock](http://npmjs.com/package/qmock).
 
+#### t.mockRequire( moduleName, replacement )
+#### t.unmockRequire( [moduleName] )
+#### t.unrequire( moduleName )
+
+Arrange for `require()` of the named module to return the replacement instead.
+Use repeated `mockRequire` calls to mock multiple modules.  Use `unmockRequire`
+to unhook the module mocks, restore the system built-in `require` functionality
+and clear all mocked modules.
+
+For details, see [qmock](http://npmjs.com/package/qmock).
+
 #### t.mockHttp( handler(req, res) )
 #### t.mockHttp( )
 #### t.unmockHttp( )

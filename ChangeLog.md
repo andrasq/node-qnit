@@ -1,3 +1,6 @@
+0.21.0
+- upgrade to qmock 0.9.0 for `mockRequire`
+
 0.20.0
 - upgrade to qmock 0.8.0 for mockHttpServer `.on`, `.once` and `.default`.
   Also changes the way urls are assembled from uri components, now using `path`

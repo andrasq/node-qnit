@@ -153,10 +153,11 @@ module.exports = {
             t.ok(typeof t.getMockSkipConstructor === 'function');
             var expectedMethods = [
                 'stub', 'spy', 'mockTimers', 'unmockTimers', 'mockHttp', 'unmockHttp',
+                'mockRequire', 'unmockRequire', 'unrequire',
             ];
             for (var i=0; i<expectedMethods.length; i++) {
                 var method = expectedMethods[i];
-                t.equal(typeof t[method], 'function');
+                t.equal(typeof t[method], 'function', expectedMethods[i]);
                 t.equal(t[method].name, method);
                 t.equal(t[method], qmock[method]);
             }
