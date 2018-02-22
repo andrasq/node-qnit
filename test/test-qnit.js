@@ -153,7 +153,7 @@ module.exports = {
             t.ok(typeof t.getMockSkipConstructor === 'function');
             var expectedMethods = [
                 'stub', 'spy', 'mockTimers', 'unmockTimers', 'mockHttp', 'unmockHttp',
-                'mockRequire', 'unmockRequire', 'unrequire',
+                'mockRequire', 'mockRequireStub', 'unmockRequire', 'unrequire',
             ];
             for (var i=0; i<expectedMethods.length; i++) {
                 var method = expectedMethods[i];

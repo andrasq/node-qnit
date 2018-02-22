@@ -363,6 +363,7 @@ Returns a `clock` object with a method `clock.tick` that advances time:
 For details, see [qmock](http://npmjs.com/package/qmock).
 
 #### t.mockRequire( moduleName, replacement )
+#### t.mockRequireStub( moduleName, handlerFunction )
 #### t.unmockRequire( [moduleName] )
 #### t.unrequire( moduleName )
 

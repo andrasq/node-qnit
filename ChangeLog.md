@@ -1,3 +1,6 @@
+0.21.1
+- add missing `mockRequireStub`
+
 0.21.0
 - upgrade to qmock 0.9.0 for `mockRequire`
 
