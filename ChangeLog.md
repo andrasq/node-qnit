@@ -1,3 +1,6 @@
+0.21.2
+- use `QMock.unrequire` to not corrupt `module.children` (fixes `t.unrequire()`)
+
 0.21.1
 - add missing `mockRequireStub`
 
