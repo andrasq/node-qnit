@@ -328,12 +328,14 @@ double will be instanceof the constructor and will inherit the same methods
 as a new instance.  If constructor is an object (not a constructor function),
 the call behaves like getMock.
 
+#### t.stub( [func] )
 #### t.stub( object, methodName [,overrideFunc] )
-#### t.spy( object, methodName [,overrideFunc] )
+#### t.spy( func )
+#### t.spy( object, methodName )
 
-Instrument calls to the named method.  If overrideFunc is specified, also replace
-the method with the override.  Returns a `stub` object that holds the gathered
-stats.  Restore the original method back onto the object with `stub.restore()`.
+Instrument calls to the given function or the named method.  If overrideFunc is specified, also replace
+the method with the override.  Returns a `spy` function that holds the gathered
+stats.  Restore the original method back onto the object with `spy.restore()`.
 
 `Stub` instruments and overrides; `spy` tracks details about the first 10 calls made.
 
