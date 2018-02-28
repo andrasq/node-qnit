@@ -1,5 +1,9 @@
+0.21.1
+- fix stubbing a method on a function
+
 0.22.0
 - upgrade to qmock 0.10.0 for better stub() and spy() semantics
+  (broke stubbing a method on a function)
 
 0.21.2
 - use `QMock.unrequire` to not corrupt `module.children` (fixes `t.unrequire()`)

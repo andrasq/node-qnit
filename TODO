@@ -18,3 +18,6 @@
 
 - fixme: node-v6 broke --fork-files
 - fixme: ifError() does not print the backtrace
+
+- fixme: t.skip() in some cases prints 'uncaught error' but t.done() works ok
+- fixme: unrequire breaks pushgateway test, but the in-lined unrequire works
