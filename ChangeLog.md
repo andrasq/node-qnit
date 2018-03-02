@@ -1,5 +1,6 @@
-0.21.1
-- fix stubbing a method on a function
+0.22.1
+- fix stubbing a method on a function (qmock 0.10.1)
+- fix unrequire() of ./ and ../ relative filepaths (qmock 0.10.2)
 
 0.22.0
 - upgrade to qmock 0.10.0 for better stub() and spy() semantics
