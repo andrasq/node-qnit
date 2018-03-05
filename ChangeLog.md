@@ -1,3 +1,6 @@
+0.23.0
+- upgrade to qmock 0.11.1 for stub returns/yields/throws etc methods
+
 0.22.1
 - fix stubbing a method on a function (qmock 0.10.1)
 - fix unrequire() of ./ and ../ relative filepaths (qmock 0.10.2)
