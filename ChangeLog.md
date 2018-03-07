@@ -1,3 +1,6 @@
+0.23.1
+- fix mockRequire, mockRequireStub of ./ and ../ relative filepaths (qmock 0.11.2)
+
 0.23.0
 - upgrade to qmock 0.11.1 for stub returns/yields/throws etc methods
 
