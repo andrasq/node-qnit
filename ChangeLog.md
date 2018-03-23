@@ -1,3 +1,7 @@
+0.24.0
+- new stub.onCall, stub.getCall, stub.yieldsAsync, stub.yieldsAsyncOnce methods (qmock 0.12.0)
+- new mockHttp mockRequest() return value (qmock 0.13.1)
+
 0.23.1
 - fix mockRequire, mockRequireStub of ./ and ../ relative filepaths (qmock 0.11.2)
 
