@@ -268,9 +268,9 @@ strict inequality test, `a !== b`
 
 #### t.contains( a, b, [message] )
 
-coercive test that a contains b as substring (strings), array element (array and
-non-array), subarray (arrays) or object key-value subset (objects).  If not
-arrays, objects or strings, a and b will be compared directly.
+coercive test that a contains b as substring or a matches regex b (strings),
+array element (array and non-array), subarray (arrays) or object key-value subset
+(objects).  If not arrays, objects or strings, a and b will be compared directly.
 
 #### t.strictContains( a, b, [message] )
 

@@ -1,3 +1,6 @@
+0.25.0
+- upgrade to qassert 1.6.0 for contains(string, regex) support
+
 0.24.0
 - new stub.onCall, stub.getCall, stub.yieldsAsync, stub.yieldsAsyncOnce methods (qmock 0.12.0)
 - new mockHttp mockRequest() return value (qmock 0.13.1)
