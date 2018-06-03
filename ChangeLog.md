@@ -1,3 +1,6 @@
+0.25.1
+- upgrade to qassert 1.6.1 for minor fixes
+
 0.25.0
 - upgrade to qassert 1.6.0 for contains(string, regex) support
 

@@ -21,3 +21,7 @@
 
 - fixme: t.skip() in some cases prints 'uncaught error' but t.done() works ok
 - fixme: unrequire breaks pushgateway test, but the in-lined unrequire works
+
+- fixme: ifError() should not abort the process (should continue with the other tests)
+
+- fixme: `throw null` is an error, but qnit thinks test succeeded!
