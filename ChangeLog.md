@@ -1,3 +1,7 @@
+0.25.2
+- if no process.hrtime, use Date.now
+- print errors returned to t.done() immediately, not just in the summary
+
 0.25.1
 - upgrade to qassert 1.6.1 for minor fixes
 
