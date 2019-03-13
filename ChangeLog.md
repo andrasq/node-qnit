@@ -1,3 +1,6 @@
+0.25.3
+- upgrade qmock to latest fixed version
+
 0.25.2
 - if no process.hrtime, use Date.now
 - print errors returned to t.done() immediately, not just in the summary
