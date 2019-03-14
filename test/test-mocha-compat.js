@@ -6,7 +6,7 @@
 'use strict';
 
 var assert = require('assert');
-var qnit = require('../index');
+var qnit = require('../');
 var qmocha = require('../lib/mocha-compat');
 
 module.exports = {
