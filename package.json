@@ -2,10 +2,11 @@
   "name": "qnit",
   "description": "unit test runner, somewhat compatible with nodeunit and mocha",
   "version": "0.26.0",
-  "bin": { "qnit": "./bin/qnit" },
   "main": "lib/qnit.js",
-  "author": "Andras",
   "license": "Apache-2.0",
+  "bin": { "qnit": "./bin/qnit" },
+
+  "author": "Andras",
   "repository": { "type": "git", "url": "git://github.com/andrasq/node-qnit" },
   "keywords": [ "unit", "test", "unit test", "nodeunit", "mocha", "tdd", "Andras" ],
   "readme": "see README.md in the repo",
