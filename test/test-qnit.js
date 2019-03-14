@@ -7,6 +7,7 @@
 
 var assert = require('assert');
 var qmock = require('qmock');
+var qnit = require('../lib/qnit');
 
 var sharedState;
 
@@ -113,6 +114,21 @@ module.exports = {
         // TODO: comment out next line and look for the error
         // TODO: move this test into separate file, and run on file
         t.done();
+    },
+
+    'should report error if throws falsy': function(t) {
+        qnit.runTestFunction(
+            function(t) {
+                // throw some falsy error
+                throw false;
+            },
+            'error test', { _selftestonly: true }, [], [], null,
+            function(err) {
+                t.ok(err instanceof Error);
+                t.contains(err.message, /falsy error/);
+                t.done();
+            }
+        );
     },
 
     'should skip test': function(t) {

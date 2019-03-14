@@ -24,8 +24,6 @@
 
 - fixme: ifError() should not abort the process (should continue with the other tests)
 
-- fixme: `throw null` is an error, but qnit thinks test succeeded!
-
 - todo: --stack-trace-limit option to set Error.stackTraceLimit for longer backtraces (default is 10)
 - todo: qnit.debug('label' [,level]) => returns a varargs console.log that prints if QNIT_DEBUG=foo,bar=2,label is set,
   else suppresses the output.  Note that leaving in debug() still spends time computing the arguments and making the call,
