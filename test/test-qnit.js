@@ -120,6 +120,24 @@ module.exports = {
         t.fail();
     },
 
+    'should bind t.done to the tester': function(t) {
+        setImmediate(t.done);
+    },
+
+    'should bind t.skip to the tester': function(t) {
+        var skip = t.skip;
+        t.throws(function() { skip('mock abort') }, /mock abort/);
+        t.throws(function() { skip('mock abort') }, /skipped/);
+        t.done();
+    },
+
+    'should bind t.fail to the tester': function(t) {
+        var fail = t.fail;
+        t.throws(function() { fail('mock fail') }, /mock fail/);
+        t.throws(function() { fail('mock fail') }, /test does not pass/);
+        t.done();
+    },
+
     'assertions': {
         'should throw Error on assertion failure': function(t) {
             t.expect(2);
@@ -159,7 +177,7 @@ module.exports = {
                 var method = expectedMethods[i];
                 t.equal(typeof t[method], 'function', expectedMethods[i]);
                 t.equal(t[method].name, method);
-                t.equal(t[method], qmock[method]);
+                t.equal(String(t[method]), String(qmock[method]));
             }
             t.done();
         },

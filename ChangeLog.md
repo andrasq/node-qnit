@@ -1,3 +1,6 @@
+0.26.0
+- have test callback methods `done`, `skip` and `fail` be bound functions
+
 0.25.3
 - upgrade qmock to latest fixed version
 

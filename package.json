@@ -1,7 +1,7 @@
 {
   "name": "qnit",
   "description": "unit test runner, somewhat compatible with nodeunit and mocha",
-  "version": "0.25.3",
+  "version": "0.26.0",
   "bin": { "qnit": "./bin/qnit" },
   "main": "index.js",
   "author": "Andras",
