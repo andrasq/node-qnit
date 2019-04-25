@@ -189,11 +189,19 @@ module.exports = {
                 'stub', 'spy', 'mockTimers', 'unmockTimers', 'mockHttp', 'unmockHttp',
                 'mockRequire', 'mockRequireStub', 'unmockRequire', 'unrequire',
             ];
+            var aliasedMethods = {
+                disrequire: 'unrequire'
+            };
             for (var i=0; i<expectedMethods.length; i++) {
                 var method = expectedMethods[i];
                 t.equal(typeof t[method], 'function', expectedMethods[i]);
                 t.equal(t[method].name, method);
                 t.equal(String(t[method]), String(qmock[method]));
+            }
+            for (var name in aliasedMethods) {
+                t.equal(typeof t[name], 'function', aliasedMethods[name]);
+                t.equal(t[name], t[aliasedMethods[name]]);
+                t.equal(String(t[name]), String(qmock[name]));
             }
             t.done();
         },
