@@ -1,3 +1,6 @@
+0.26.1
+- upgrade qmock to hugely speed up worst case unrequire speed
+
 0.26.0
 - have test callback methods `done`, `skip` and `fail` be bound functions
 - fail test on all thrown errors, even if the error value is falsy or null
