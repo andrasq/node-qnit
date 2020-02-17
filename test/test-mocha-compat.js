@@ -81,8 +81,8 @@ module.exports = {
             //console.log("DONE", err, err?err.stack:"", trace.length, expectTrace.length);
             //for (var i=0; i<trace.length; i++) t.printf("%-3i %s %s\n", trace[i] == expectTrace[i], trace[i], expectTrace[i]);
             assert.deepEqual(trace, expectTrace);
+            t.done();
         });
-
-        t.done();
     },
+
 };

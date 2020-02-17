@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 Andras Radics
+ * Copyright (C) 2015,2020 Andras Radics
  * Licensed under the Apache License, Version 2.0
  */
 
@@ -22,7 +22,7 @@ describe('describe suite', function() {
     beforeEach(function beforeEach() { trace.push("top before each"); });
     afterEach(function afterEach(done) { trace.push("top after each"); done(); });
 
-    it('test 1', function test1(done) { trace.push("test 1"); done(); });
+    it('test 1', function test1() { trace.push("test 1"); });
     it('test 2', function test2(done) { trace.push("test 2"); done(); });
 
     describe('nested describe suite', function() {
