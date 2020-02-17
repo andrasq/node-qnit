@@ -1,3 +1,6 @@
+0.27.0
+- allow {before,after}{,Each}() and it() to run without callbacks (mocha compat)
+
 0.26.1
 - upgrade qmock to hugely speed up worst case unrequire speed
 

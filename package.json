@@ -1,7 +1,7 @@
 {
   "name": "qnit",
   "description": "unit test runner, somewhat compatible with nodeunit and mocha",
-  "version": "0.26.1",
+  "version": "0.27.0",
   "main": "lib/qnit.js",
   "license": "Apache-2.0",
   "bin": { "qnit": "./bin/qnit" },

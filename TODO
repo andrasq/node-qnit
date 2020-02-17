@@ -29,3 +29,6 @@
   else suppresses the output.  Note that leaving in debug() still spends time computing the arguments and making the call,
   but if it uses printf then could defer much of the string manipulation.
   qassert.debug? qprintf.debug? QPRINTF_DEBUG=label=2
+
+- --full-trace option (like mocha) to not truncate backtraces.  See: Error.stackTraceLimit = Infinity;
+  nb: maybe limit Error stack trace initially to 0 then grab an explicit stack?
