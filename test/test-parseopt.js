@@ -6,6 +6,7 @@
 'use strict';
 
 var path = require('path');
+var tty = require('tty');
 var parseopt = require('../lib/parseopt');
 var pkg = require('../package.json');
 
@@ -54,6 +55,29 @@ module.exports = {
         var index = require.resolve(pathname);
         t.ok(require.cache[index]);
         t.equal(require.cache[index].exports.dep, "dependency");
+
+        t.unrequire(pathname);
+        parseopt("--require " + pathname + " -r " + pathname);
+        t.ok(require.cache[index]);
+
+        t.done();
+    },
+
+    'should turn off colorization if not tty': function(t) {
+        t.stubOnce(tty, 'isatty', function() { return false });
+        var opts = parseopt("");
+        t.equal(opts.noColor, true);
+        t.done();
+    },
+
+    'should accept last --config': function(t) {
+        var opts = parseopt("--config foo --config foofoo");
+        t.equal(opts.config, 'foofoo');
+        t.done();
+    },
+
+    'should throw if unable to -r require source': function(t) {
+        t.throws(function() { parseopt("-r ./nonesuch"); }, /Cannot find module/);
         t.done();
     },
 }
