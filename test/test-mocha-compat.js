@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 Andras Radics
+ * Copyright (C) 2015,2020 Andras Radics
  * Licensed under the Apache License, Version 2.0
  */
 
@@ -10,18 +10,23 @@ var qnit = require('../');
 var qmocha = require('../lib/mocha-compat');
 
 module.exports = {
-    'should parse mocha test': function(t) {
-        qmocha.reset();
-        // delete any previous run results, and re-run with empty options
-        delete require.cache[require.resolve('./mocha-test.js')];
-        var trace = require('./mocha-test.js');
-        var options = {};
-        var stats = {
+    beforeEach: function(done) {
+        this.options = {};
+        this.stats = {
             assertionCount: 0,
             fileCount: 0,
             errors: new Array(),
         };
-        qnit.runTest(qmocha.getHierarchy(), "", options, [], [], stats, function(err) {
+        qmocha.reset();
+        done();
+    },
+
+    'should parse mocha test': function(t) {
+        // delete any previous run results, and re-run with empty options
+        // delete require.cache[require.resolve('./mocha-test.js')];
+        t.unrequire('./mocha-test.js');
+        var trace = require('./mocha-test.js');
+        qnit.runTest(qmocha.getHierarchy(), "", this.options, [], [], this.stats, function(err) {
             var expectTrace = [
                 // top level
                 "top before",
@@ -85,4 +90,21 @@ module.exports = {
         });
     },
 
+    'should supply callbacks where needed': function(t) {
+        var called = false;
+
+        describe();
+        beforeEach();
+        it(function(){ called = true });
+        it();
+
+        var hierarchy = qmocha.getHierarchy();
+        t.equal(hierarchy.beforeEach.length, 1);
+        t.equal(hierarchy.beforeEach[0].length, 1);
+
+        qnit.runTest(qmocha.getHierarchy(), "", this.options, [], [], this.stats, function(err) {
+            t.ok(called);
+            t.done();
+        })
+    },
 };
