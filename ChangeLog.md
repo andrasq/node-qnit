@@ -1,3 +1,10 @@
+0.28.0
+- update qmock to 0.16.0 for better mockHttp semantics, req.abort() and req.socket.destroy() mocking
+  (breaking: http mocking is no longer auto-installed, and is completely uninstalled on unmock.
+  This should allow apps to be tested that make http requests during startup without first
+  having to unmock http.  Note that to ensure that all http requests can be mocked, mockHttp()
+  should be run before the app is loaded.)
+
 0.27.0
 - allow {before,after}{,Each}() and it() to run without callbacks (mocha compat)
 
