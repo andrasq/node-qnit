@@ -1,3 +1,6 @@
+0.28.1
+- upgrade qassert to eliminate assert.ok deprecation warning
+
 0.28.0
 - update qmock to 0.16.0 for better mockHttp semantics, req.abort() and req.socket.destroy() mocking
   (breaking: http mocking is no longer auto-installed, and is completely uninstalled on unmock.

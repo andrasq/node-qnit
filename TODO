@@ -8,7 +8,7 @@
 - mocha runs each inner `describe` clause with its own copy of the surrounding scope ?!
 
 - mocha compat: it.only to run only that test (ie, only those tagged "only")
-- mocha compat: this.timeout() to control per-test timeout
+- mocha compat: this.timeout() to control per-test timeout (non-enumerable `this` property)
 
 - fixme: if test is ^Z suspended for more than 2000 (-t) milliseconds, the "did not call done" error is printed
   but the test is still run to completion, instead of being aborted
@@ -34,3 +34,7 @@
   nb: maybe limit Error stack trace initially to 0 then grab an explicit stack?
 
 - fixme: catch duplicate done() from before/after etc (before not being caught)
+- mocha compat: support describe.skip(), context.skip(), it.skip()
+
+- option (or default) to print dots per test run, do not print each test name.
+  Maybe reset (and print name) of each test file, but print test name only on failure.
