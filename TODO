@@ -1,7 +1,5 @@
 - read cmdline options from test/qnit.opts? (like mocha, for eg -t 5000)
 
-- setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
-
 - report eg "var not defined" errors that occur inside tests (as opposed to MongoError: Connection Closed By Application)
   (also "call stack exceeded", which is what it was I believe)
 
@@ -14,15 +12,14 @@
   but the test is still run to completion, instead of being aborted
 
 - mocha does not run calls below the `done()` (coculd run test in a try/catch, and throw a '__done__' flag)
-- sinon compat: the returned spy is the annotated spying function, same for stub and spy (ie no spy/stub dichotomy)
 
 - fixme: node-v6 broke --fork-files
 - fixme: ifError() does not print the backtrace
+- fix: ifError() should display the returned error, not a new error generated because it was truthy
+- fixme: ifError() should not abort the process (should continue with the other tests)
 
 - fixme: t.skip() in some cases prints 'uncaught error' but t.done() works ok
 - fixme: unrequire breaks pushgateway test, but the in-lined unrequire works
-
-- fixme: ifError() should not abort the process (should continue with the other tests)
 
 - todo: --stack-trace-limit option to set Error.stackTraceLimit for longer backtraces (default is 10)
 - todo: qnit.debug('label' [,level]) => returns a varargs console.log that prints if QNIT_DEBUG=foo,bar=2,label is set,
@@ -38,3 +35,8 @@
 
 - option (or default) to print dots per test run, do not print each test name.
   Maybe reset (and print name) of each test file, but print test name only on failure.
+  (nb: this is a phpunit compat thing, in nodejs each test is printed on a separate line)
+
+- setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
+- mocha compat: fix: run all teardown functions even if one errors out; report all
+- mocha compat: fix: tolerate teardown errors, report them but do not kill the test suite
