@@ -74,6 +74,9 @@ module.exports = {
                 t.ok(sharedState === 2);
                 t.done();
             },
+
+            // TODO: also test that teardowns are called after a test failure
+            // (which needs to be in a separate file, else it would break this test suite)
         },
 
         'before special method': {
@@ -142,8 +145,10 @@ module.exports = {
 
     'should bind t.skip to the tester': function(t) {
         var skip = t.skip;
-        t.throws(function() { skip('mock abort') }, /mock abort/);
-        t.throws(function() { skip('mock abort') }, /skipped/);
+        // t.skip() ignores its argument and throws the string "__skip"
+// FIXME: should t.skip() abort the test even when caught inside t.throws?
+//
+        t.throws(function() { skip('mock abort') }, '__skip');
         t.done();
     },
 

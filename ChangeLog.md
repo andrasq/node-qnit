@@ -1,3 +1,7 @@
+0.29.0
+- better error message annotations
+- run the teardown functions `tearDown`, `after`, `afterEach` even after test errors
+
 0.28.1
 - upgrade qassert to eliminate assert.ok deprecation warning
 
