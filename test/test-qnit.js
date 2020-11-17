@@ -91,7 +91,8 @@ module.exports = {
             'should run before test (check 1)': function(t) {
                 t.ok(this.now > 1000000);
                 t.ok(Date.now() - this.now < 10);
-                setTimeout(t.done, 20);
+                // pad the timeout to work around node-v0.8 timeout precision
+                setTimeout(t.done, 20 + 2);
             },
 
             'should run only once (check 2)': function(t) {
