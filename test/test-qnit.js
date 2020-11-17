@@ -9,6 +9,9 @@ var assert = require('assert');
 var qmock = require('qmock');
 var qnit = require('../lib/qnit');
 
+// workaround for node pre-0.10 that did not have setImmediate
+var setImmediate = global.setImmediate || function(cb, a, b, c) { setTimeout(function() { cb(a, b, c)}, 0) }
+
 var sharedState;
 
 module.exports = {
@@ -146,6 +149,7 @@ module.exports = {
     'should bind t.skip to the tester': function(t) {
         var skip = t.skip;
         // t.skip() ignores its argument and throws the string "__skip"
+//
 // FIXME: should t.skip() abort the test even when caught inside t.throws?
 //
         t.throws(function() { skip('mock abort') }, '__skip');
