@@ -13,7 +13,7 @@
 
 - mocha does not run calls below the `done()` (coculd run test in a try/catch, and throw a '__done__' flag)
 
-- fixme: node-v6 broke --fork-files
++ fixme: node-v6 broke --fork-files (now need 'ipc' in the stdio descriptors array, else cannot .send() to)
 - fixme: ifError() does not print the backtrace
 - fix: ifError() should display the returned error, not a new error generated because it was truthy
 - fixme: ifError() should not abort the process (should continue with the other tests)
@@ -40,3 +40,8 @@
 - setup/teardown: handle done(err) by logging error and unit test location (not "uncaught error" trace of internal location)
 - mocha compat: fix: run all teardown functions even if one errors out; report all
 - mocha compat: fix: tolerate teardown errors, report them but do not kill the test suite
+
+- fixme: assertion error does not print the failing test name (it kills the program? "unexpected exit, tests not done")
+  (see also above "ifError() does not print a backtrace")
+  A: if the error happens in a callback, it is not caught by the tests' try/catch -- maybe set a global error listener?
+- fixme: mocha compat: identical-named describe() tests do not run! (only the last one does)

@@ -1,3 +1,10 @@
+0.30.0
+- support `it.skip()` (mocha compat)
+
+0.29.1
+- fix --fork-files (broken by node-v6)
+- fix unit tests under node-v0.8
+
 0.29.0
 - better error message annotations
 - run the teardown functions `tearDown`, `after`, `afterEach` even after test errors
