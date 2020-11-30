@@ -5,6 +5,7 @@
   "main": "lib/qnit.js",
   "license": "Apache-2.0",
   "bin": { "qnit": "./bin/qnit" },
+  "files": ["bin", "Changelog.md", "lib", "LICENSE", "Readme.md"],
 
   "author": "Andras",
   "repository": { "type": "git", "url": "git://github.com/andrasq/node-qnit" },
