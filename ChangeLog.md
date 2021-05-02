@@ -1,3 +1,6 @@
+0.31.0
+- fix tests under node-v0.8
+
 0.30.0
 - support `it.skip()` (mocha compat)
 
