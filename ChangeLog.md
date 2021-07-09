@@ -1,3 +1,6 @@
+0.32.0
+- upgrade to qassert 1.6.8 for better throws and value inspection
+
 0.31.0
 - fix tests under node-v0.8
 
