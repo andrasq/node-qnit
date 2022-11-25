@@ -1,3 +1,6 @@
+0.32.1
+- bump `qmock` to latest version 0.17.0
+
 0.32.0
 - upgrade to qassert 1.6.8 for better throws and value inspection
 
