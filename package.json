@@ -1,7 +1,7 @@
 {
   "name": "qnit",
   "description": "unit test runner, somewhat compatible with nodeunit and mocha",
-  "version": "0.32.2",
+  "version": "0.32.3",
   "main": "lib/qnit.js",
   "license": "Apache-2.0",
   "bin": { "qnit": "./bin/qnit" },
@@ -16,7 +16,7 @@
     "aflow": "0.10.0",
     "qassert": "1.6.8",
     "qgetopt": "1.0.2",
-    "qmock": "0.17.1",
+    "qmock": "0.17.2",
     "qprintf": "0.9.2"
   },
 
