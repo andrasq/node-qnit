@@ -1,3 +1,6 @@
+0.32.2
+- bump `qmock` to latest 0.17.1 to fix disrequire under node-v0.6
+
 0.32.1
 - bump `qmock` to latest version 0.17.0
 
