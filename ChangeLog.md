@@ -1,3 +1,7 @@
+0.32.3
+- bump `qmock` to latest 0.17.2 to re-fix disrequire, bump qassert to 1.6.9 to advance past
+  mistakenly deprecated version
+
 0.32.2
 - bump `qmock` to latest 0.17.1 to fix disrequire under node-v0.6
 
